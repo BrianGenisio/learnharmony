@@ -17,5 +17,5 @@ app.greet();
 let compiler = new StringCompiler();
 var transpiled = compiler.transpile('let foo = x => x * x; console.log(foo(5));');
 
-console.log('running', transpiled);
+console.log(transpiled);
 eval(transpiled);
