@@ -15,6 +15,7 @@
   ],
   "dependencies": {
     "traceur": "~0.0.61",
-    "bootstrap": "~3.2.0"
+    "bootstrap": "~3.2.0",
+    "codemirror": "~4.5.0"
   }
 }

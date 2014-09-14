@@ -11,6 +11,11 @@ class Editor {
     this.$el = $element.find('#code-editor');
 
     this.$el.find('#run').on('click', () => this.execute());
+
+    CodeMirror.fromTextArea(this.$el.find('textarea')[0], {
+      lineNumbers: true,
+      mode: "javascript"
+    });
   }
 
   execute() {
