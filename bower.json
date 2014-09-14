@@ -1,0 +1,19 @@
+{
+  "name": "learnes6",
+  "version": "0.0.0",
+  "authors": [
+    "Brian Genisio <BrianGenisio@Gmail.com>"
+  ],
+  "description": "A site for learning ES6",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "traceur": "~0.0.61"
+  }
+}
