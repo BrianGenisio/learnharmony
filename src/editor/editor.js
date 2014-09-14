@@ -12,13 +12,14 @@ class Editor {
 
     this.$el.find('#run').on('click', () => this.execute());
 
-    CodeMirror.fromTextArea(this.$el.find('textarea')[0], {
+    this.codeMirror = CodeMirror.fromTextArea(this.$el.find('textarea')[0], {
       lineNumbers: true,
       mode: "javascript"
     });
   }
 
   execute() {
+    this.codeMirror.save();
     var code = this.$el.find('textarea').val();
     var transpiled = this.compiler.transpile(code);
     eval(transpiled);
