@@ -4,7 +4,17 @@ class StringCompiler {
       modules: 'commonjs',
       experimental: true
     });
-    return traceurCompiler.compile(code);
+    
+    let transpiled = traceurCompiler.compile(code);
+
+    let result = 
+`(function() { 
+
+${ transpiled } 
+
+})();`;
+
+    return result;
   }
 }
 
