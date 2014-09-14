@@ -22,20 +22,6 @@
         	new traceur.WebPageTranscoder(document.location.href).run();
         </script>
 
-        <script type="module">
-          class Greeter {
-            constructor(message) {
-              this.message = message;
-            }
-
-            greet() {
-              let element = document.querySelector('#message');
-              element.innerHTML = this.message;
-            }
-          };
-
-          let greeter = new Greeter('Hello, world!');
-          greeter.greet();
-        </script>
+        <script type="module" src="src/app.js"></script>
     </body>
 </html>
