@@ -14,6 +14,7 @@
     "tests"
   ],
   "dependencies": {
-    "traceur": "~0.0.61"
+    "traceur": "~0.0.61",
+    "bootstrap": "~3.2.0"
   }
 }
