@@ -1,4 +1,4 @@
-import {editorTemplate} from './editor.template'
+import {editorTemplate} from './editor.template';
 import StringCompiler from './string-compiler';
 
 class Editor {
