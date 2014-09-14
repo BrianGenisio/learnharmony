@@ -1,1 +1,41 @@
-TESTING
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Learn ES6 NOW!</title>
+        <meta name="description" content="Learn ES6">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <p>Hello! Welcome to Learn ES6!</p>
+        <h1 id="message"></h1>
+
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/traceur/traceur.js"></script>
+        <script>
+            traceur.options.experimental = true;
+        	new traceur.WebPageTranscoder(document.location.href).run();
+        </script>
+
+        <script type="module">
+          class Greeter {
+            constructor(message) {
+              this.message = message;
+            }
+
+            greet() {
+              let element = document.querySelector('#message');
+              element.innerHTML = this.message;
+            }
+          };
+
+          let greeter = new Greeter('Hello, world!');
+          greeter.greet();
+        </script>
+    </body>
+</html>
