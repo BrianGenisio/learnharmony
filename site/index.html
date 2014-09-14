@@ -20,6 +20,7 @@
         <script>
             traceur.options.experimental = true;
         	new traceur.WebPageTranscoder(document.location.href).run();
+            System.baseURL = 'src';
         </script>
 
         <script type="module" src="src/app.js"></script>
