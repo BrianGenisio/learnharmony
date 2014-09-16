@@ -20,8 +20,8 @@ class Editor {
 
   execute() {
     this.codeMirror.save();
-    var code = this.$el.find('textarea').val();
-    var transpiled = this.compiler.transpile(code);
+    let code = this.$el.find('textarea').val();
+    let transpiled = this.compiler.transpile(code);
     eval(transpiled);
   }
 }
