@@ -1,28 +1,36 @@
 class Console {
   constructor() {
     this.hijackLog();
+    this.started = false;
   }
 
   hijackLog() {
     if(console.log.hijacked) return;
 
     let oldLog = console.log;
-    let self = this;
 
-    console.log = function(...args) {
-      if(self.$el) {
-        var line = args.map(arg => JSON.stringify(arg) || arg.toString()).join(' ');
-        self.$el.append(`> ${line} \n`);
-      }
-
+    console.log = (...args) => {
       oldLog.apply(console, args);
+      this.logToScreen(args);
     };
 
     console.log.hijacked = true;
   }
 
+  logToScreen(args) {
+    if(!this.$el) return;
+
+    if(!this.started) {
+      this.$el.text('');
+      this.started = true;
+    }
+
+    var line = args.map(arg => JSON.stringify(arg) || arg.toString()).join(' ');
+    this.$el.append(`console > ${line} \n`);
+  }
+
   render($element) {
-    $element.html('<pre></pre>');
+    $element.html('<pre>console &gt; \n</pre>');
     this.$el = $element.find('pre');
   }
 }
