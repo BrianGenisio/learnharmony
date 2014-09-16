@@ -11,8 +11,8 @@ class Console {
 
     console.log = function(...args) {
       if(self.$el) {
-        var data = JSON.stringify.apply(this, args);
-        self.$el.append(`<li>${data}</li>`);
+        var line = args.map(arg => JSON.stringify(arg) || arg.toString()).join(' ');
+        self.$el.append(`> ${line} \n`);
       }
 
       oldLog.apply(console, args);
@@ -22,8 +22,8 @@ class Console {
   }
 
   render($element) {
-    $element.html('<ul></ul>');
-    this.$el = $element.find('ul');
+    $element.html('<pre></pre>');
+    this.$el = $element.find('pre');
   }
 }
 
