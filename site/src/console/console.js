@@ -25,7 +25,7 @@ class Console {
       this.started = true;
     }
 
-    var line = args.map(arg => JSON.stringify(arg) || arg.toString()).join(' ');
+    let line = args.map(arg => JSON.stringify(arg) || arg.toString()).join(' ');
     this.$el.append(`console > ${line} \n`);
   }
 
