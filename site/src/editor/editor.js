@@ -18,6 +18,14 @@ class Editor {
     });
   }
 
+  get code() {
+    return this.codeMirror.getValue();
+  }
+
+  set code(value) {
+    this.codeMirror.setValue(value);
+  }
+
   execute() {
     this.codeMirror.save();
     let code = this.$el.find('textarea').val();

@@ -11,8 +11,19 @@ editor.render($('#app-container .editor-container'));
 let console = new Console();
 console.render($('#app-container .console-container'));
 
+function mapPage(pageName) {
+  System.import(`src/pages/${pageName}.page`)
+    .then(function({page}) {
+      $('.heading').html(page.heading);
+      $('.intro').html(page.intro);
+      $('.editor').toggle(!page.hideEditor);
+      editor.code = page.code || '';
+    }).catch(function(errors) {
+      console.log('failed to load page: ', errors);
+    });
+}
+
 let router = new Router();
-router.route('/', () => window.console.log('home'));
-router.route('about', () => window.console.log('about'));
-router.route('contact', () => window.console.log('contact'));
+router.route('/', () => mapPage('home'));
+router.route('about', () => mapPage('about'));
 router.listen();

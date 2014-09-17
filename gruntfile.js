@@ -24,7 +24,7 @@ module.exports = function(grunt) {
         evil: true,
         esnext: true
       },
-      src: ['site/src/**/*.js', '!site/src/**/*.template.js']
+      src: ['site/src/**/*.js', '!site/src/**/*.template.js', '!site/src/**/*.page.js']
     }
   });
 
