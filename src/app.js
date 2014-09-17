@@ -14,8 +14,9 @@ console.render($('#app-container .console-container'));
 function updateNav(url) {
   if(url === '/') url = '';
   $('.nav li').removeClass('active');
-  let $active = $(`.nav li a[href=#${url}]`);
+  let $active = $(`.nav li a[href="#${url}"]`);
   $active.closest('li').addClass('active');
+  $active.closest('li').parent().closest('li').addClass('active');
 }
 
 function mapPage(pageName, url) {
@@ -34,4 +35,6 @@ function mapPage(pageName, url) {
 let router = new Router();
 router.route('/', url => mapPage('home', url));
 router.route('about', url => mapPage('about', url));
+
+router.route('lessons/arrow-functions', url => mapPage('lessons/arrow-functions', url));
 router.listen();
