@@ -37,4 +37,5 @@ router.route('/', url => mapPage('home', url));
 router.route('about', url => mapPage('about', url));
 
 router.route('lessons/arrow-functions', url => mapPage('lessons/arrow-functions', url));
+router.route('lessons/destructuring', url => mapPage('lessons/destructuring', url));
 router.listen();
