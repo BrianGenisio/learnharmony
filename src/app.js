@@ -27,5 +27,3 @@ let router = new Router();
 router.route('/', () => mapPage('home'));
 router.route('about', () => mapPage('about'));
 router.listen();
-
-mapPage('home');
