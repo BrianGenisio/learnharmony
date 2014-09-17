@@ -1,7 +1,8 @@
 import {appTemplate} from 'src/app.template';
 import Editor from 'src/editor/editor';
 import Console from 'src/console/console';
-import Router from 'src/router/router';
+import AppRouter from 'src/app-router';
+import routes from 'src/routes';
 
 $('#app-container').html(appTemplate);
 
@@ -32,10 +33,4 @@ function mapPage(pageName, url) {
     });
 }
 
-let router = new Router();
-router.route('/', url => mapPage('home', url));
-router.route('about', url => mapPage('about', url));
-
-router.route('lessons/arrow-functions', url => mapPage('lessons/arrow-functions', url));
-router.route('lessons/destructuring', url => mapPage('lessons/destructuring', url));
-router.listen();
+new AppRouter(routes).start(mapPage);
