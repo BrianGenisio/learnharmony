@@ -11,19 +11,27 @@ editor.render($('#app-container .editor-container'));
 let console = new Console();
 console.render($('#app-container .console-container'));
 
-function mapPage(pageName) {
+function updateNav(url) {
+  if(url === '/') url = '';
+  $('.nav li').removeClass('active');
+  let $active = $(`.nav li a[href=#${url}]`);
+  $active.closest('li').addClass('active');
+}
+
+function mapPage(pageName, url) {
   System.import(`src/pages/${pageName}.page`)
     .then(function({page}) {
       $('.heading').html(page.heading);
       $('.intro').html(page.intro);
       $('.editor').toggle(!page.hideEditor);
       editor.code = page.code || '';
+      updateNav(url);
     }).catch(function(errors) {
       console.log('failed to load page: ', errors);
     });
 }
 
 let router = new Router();
-router.route('/', () => mapPage('home'));
-router.route('about', () => mapPage('about'));
+router.route('/', url => mapPage('home', url));
+router.route('about', url => mapPage('about', url));
 router.listen();
