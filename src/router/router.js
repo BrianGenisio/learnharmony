@@ -11,7 +11,7 @@ class Router {
     var url = location.hash.slice(1) || '/';
     var handler = this.routes[url];
 
-    if(handler) handler();
+    if(handler) handler(url);
   }
 
   listen() {
