@@ -25,9 +25,17 @@ module.exports = function(grunt) {
         esnext: true
       },
       src: ['site/src/**/*.js', '!site/src/**/*.template.js', '!site/src/**/*.page.js']
+    },
+
+    pages: {
+      lessons: {
+        src: ['site/src/pages/**/*.md']
+      }
     }
   });
 
+
+  grunt.loadTasks('tasks');
   grunt.loadNpmTasks('grunt-http-server');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
