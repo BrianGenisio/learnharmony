@@ -16,6 +16,10 @@ module.exports = function(grunt) {
       scripts: {
         files: 'site/src/**/*.js',
         tasks: ['jshint']
+      },
+      markdown: {
+        files: 'site/src/**/*.md',
+        tasks: ['pages']
       }
     },
 
@@ -40,5 +44,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['http-server:dev', 'watch']);
+  grunt.registerTask('default', ['jshint', 'pages']);
+  grunt.registerTask('serve', ['http-server:dev', 'pages', 'watch']);
 }
