@@ -9,6 +9,9 @@ module.exports = function(grunt) {
     processPages);
 
   function processPages() {
+    var pages = [];
+    var baseDir = this.data.baseDir;
+
     this.files.forEach(function(list) {
       list.src.forEach(function(filePath) {
         var src = grunt.file.read(filePath);
@@ -21,15 +24,35 @@ module.exports = function(grunt) {
         }
 
         parsed.body = marked(parsed.body);
-        grunt.log.writeln('Body: ', parsed.body)
-
+        
         var result = parsed.attributes;
         result.intro = parsed.body;
 
         var output = "export var page = " + JSON.stringify(result, null, 4) + ";"
 
         grunt.file.write(destPath, output);
+
+        pages.push(getPageDescriptor(baseDir || '', filePath, result));
       });
     });
+
+    var output = 'export var routes = ' + JSON.stringify(pages, null, 4) + ';';
+
+    grunt.file.write(this.data.routes, output);
+  }
+
+  function getPageDescriptor(baseDir, filePath, arguments) {
+    var page = filePath.replace(baseDir, '');
+    page = page.replace('.md', '');
+
+    var result = {
+      page: page
+    };
+
+    if(arguments.route) {
+      result.route = arguments.route;
+    }
+
+    return result;
   }
 };

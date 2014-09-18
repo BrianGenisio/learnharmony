@@ -1,7 +1,15 @@
 export var routes = [
-  {page: 'home', route: '/'},
-  {page: 'about'},
-  {page: 'lessons/arrow-functions'},
-  {page: 'lessons/destructuring'}
+    {
+        "page": "about",
+        "route": "/"
+    },
+    {
+        "page": "home"
+    },
+    {
+        "page": "lessons/arrow-functions"
+    },
+    {
+        "page": "lessons/destructuring"
+    }
 ];
-

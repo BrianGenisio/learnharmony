@@ -33,7 +33,9 @@ module.exports = function(grunt) {
 
     pages: {
       lessons: {
-        src: ['site/src/pages/**/*.md']
+        baseDir: 'site/src/pages/',
+        src: ['site/src/pages/**/*.md'],
+        routes: 'site/src/routes.js'
       }
     }
   });
