@@ -2,7 +2,7 @@ import {appTemplate} from 'src/app.template';
 import Editor from 'src/editor/editor';
 import Console from 'src/console/console';
 import AppRouter from 'src/app-router';
-import routes from 'src/routes';
+import {routes} from 'src/routes';
 
 $('#app-container').html(appTemplate);
 

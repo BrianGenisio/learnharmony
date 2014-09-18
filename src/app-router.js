@@ -7,7 +7,7 @@ class AppRoutes {
   }
 
   start(mapPage) {
-    for(let {page, route} of this.routes()) {
+    for(let {page, route} of this.routes) {
       route = route || page;
       this.router.route(route, url => mapPage(page, url));
     }
