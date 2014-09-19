@@ -1,7 +1,20 @@
 var fm = require('front-matter');
-var md = require('github-flavored-markdown');
+var md = require('marked');
+var hljs = require('highlight.js');
 
 module.exports = function(grunt) {
+
+  md.setOptions({
+    highlight: function(code, lang) {
+      var out = code;
+      try {
+        return hljs.highlight(lang, code).value;
+      } catch(e) {
+        return hljs.highlightAuto(code).value;
+      }
+      return out;
+    }
+  });
 
   grunt.registerMultiTask(
     'pages', 
@@ -23,7 +36,7 @@ module.exports = function(grunt) {
           grunt.log.warn('failed to parse front matter (' + src + '): ' + e.problem + ' line ' + e.problem_mark.line);
         }
 
-        parsed.body = md.parse(parsed.body);
+        parsed.body = md(parsed.body);
         
         var result = parsed.attributes;
         result.intro = parsed.body;
