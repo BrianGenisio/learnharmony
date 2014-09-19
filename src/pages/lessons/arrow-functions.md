@@ -8,3 +8,9 @@ code: |
 ---
 
 Talk about arrow functions
+
+```javascript
+function logMe() {
+    console.log('testing code');
+}
+```
