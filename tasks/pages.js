@@ -1,5 +1,5 @@
 var fm = require('front-matter');
-var marked = require('marked');
+var md = require('github-flavored-markdown');
 
 module.exports = function(grunt) {
 
@@ -23,7 +23,7 @@ module.exports = function(grunt) {
           grunt.log.warn('failed to parse front matter (' + src + '): ' + e.problem + ' line ' + e.problem_mark.line);
         }
 
-        parsed.body = marked(parsed.body);
+        parsed.body = md.parse(parsed.body);
         
         var result = parsed.attributes;
         result.intro = parsed.body;
