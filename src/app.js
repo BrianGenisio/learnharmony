@@ -12,6 +12,24 @@ editor.render($('#app-container .editor-container'));
 let console = new Console();
 console.render($('#app-container .console-container'));
 
+populateNav(routes);
+
+new AppRouter(routes).start(mapPage);
+
+function navEntry(route) {
+  var result = `
+<li>
+  <a href="#${route.page}">${route.title}</a>
+</li>`;
+
+  return result;
+}
+
+function populateNav(routes) {
+  let groupedRoutes = routes.filter(route => !!route.navGroup);
+  groupedRoutes.forEach(route => $(route.navGroup).append(navEntry(route)));
+}
+
 function updateNav(url) {
   if(url === '/') url = '';
   $('.nav li').removeClass('active');
@@ -32,5 +50,3 @@ function mapPage(pageName, url) {
       console.log('failed to load page: ', errors);
     });
 }
-
-new AppRouter(routes).start(mapPage);

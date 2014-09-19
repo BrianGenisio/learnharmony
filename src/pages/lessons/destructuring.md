@@ -1,4 +1,6 @@
 ---
+title: Destructuring
+navGroup: .lessons
 heading: Destructuring
 code: |
     var person = {

@@ -1,15 +1,21 @@
 export var routes = [
     {
         "page": "about",
+        "title": "About"
+    },
+    {
+        "page": "home",
+        "title": "Home",
         "route": "/"
     },
     {
-        "page": "home"
+        "page": "lessons/arrow-functions",
+        "title": "Arrow Functions",
+        "navGroup": ".lessons"
     },
     {
-        "page": "lessons/arrow-functions"
-    },
-    {
-        "page": "lessons/destructuring"
+        "page": "lessons/destructuring",
+        "title": "Destructuring",
+        "navGroup": ".lessons"
     }
 ];
