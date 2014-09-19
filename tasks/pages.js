@@ -46,7 +46,9 @@ module.exports = function(grunt) {
     page = page.replace('.md', '');
 
     var result = {
-      page: page
+      page: page,
+      title: arguments.title || arguments.heading,
+      navGroup: arguments.navGroup
     };
 
     if(arguments.route) {

@@ -1,4 +1,6 @@
 ---
+title: Home
+route: /
 heading: Learn ES6 (Harmony) Now!
 code: |
     let futureJavascript = () => {
