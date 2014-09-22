@@ -25,9 +25,32 @@ function navEntry(route) {
   return result;
 }
 
+function orderRoutes(routes) {
+  let result = [];
+  let current = _.find(routes, route => route.first);
+
+  while(current) {
+    _.remove(routes, current);
+    result.push(current);
+    let nextName = current.next;
+
+    current = nextName ? _.find(routes, route => route.page === nextName) : null;
+    if(!current) current = routes.pop();
+  }
+
+  result.push(...routes);
+
+  return result;
+}
+
 function populateNav(routes) {
-  let groupedRoutes = routes.filter(route => !!route.navGroup);
-  groupedRoutes.forEach(route => $(route.navGroup).append(navEntry(route)));
+  _(routes)
+    .filter(route => !!route.navGroup)
+    .groupBy(route => route.navGroup)
+    .values()
+    .map(orderRoutes)
+    .flatten()
+    .forEach(route => $(route.navGroup).append(navEntry(route)));
 }
 
 function updateNav(url) {
