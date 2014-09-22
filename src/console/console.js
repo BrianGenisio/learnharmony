@@ -17,6 +17,10 @@ class Console {
     console.log.hijacked = true;
   }
 
+  stringify(obj) {
+    return JSON.pruned(obj);
+  }
+
   logToScreen(args) {
     if(!this.$el) return;
 
@@ -25,7 +29,7 @@ class Console {
       this.started = true;
     }
 
-    let line = args.map(arg => !arg ? 'undefined' : JSON.stringify(arg) || arg.toString()).join(' ');
+    let line = args.map(arg => !arg ? 'undefined' : this.stringify(arg) || arg.toString()).join(' ');
     this.$el.append(`console > ${line} \n`);
   }
 

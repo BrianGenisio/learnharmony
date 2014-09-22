@@ -4,6 +4,7 @@ import StringCompiler from './string-compiler';
 class Editor {
   constructor() {
     this.compiler = new StringCompiler();
+    this.moduleId = 0;
   }
 
   render($element) {
@@ -29,8 +30,11 @@ class Editor {
   execute() {
     this.codeMirror.save();
     let code = this.$el.find('textarea').val();
-    let transpiled = this.compiler.transpile(code);
+
+    let moduleName = 'repl' + this.moduleId++;
+    let transpiled = this.compiler.transpile(code, moduleName);
     eval(transpiled);
+    System.import(moduleName);
   }
 }
 
