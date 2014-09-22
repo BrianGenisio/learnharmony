@@ -1,6 +1,9 @@
 ---
 title: Home
 route: /
+first: true
+next: lessons/arrow-functions
+nextText: Let's get started with our first lession -- Arrow Functions
 heading: Learn ES6 (Harmony) Now!
 code: |
     let futureJavascript = () => {

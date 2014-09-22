@@ -9,9 +9,4 @@ export var appTemplate = `
   <div class="col-md-6 console-container"></div>
 </div>
 
-<div class="footer">
-  <div class="col-md-10 next-text"></div>
-  <div class="col-md-2 next-link"><a href="#"><span class="text">Next</span> &gt;&gt;</a></div>
-</div>
-
 `;
