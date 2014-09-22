@@ -61,7 +61,10 @@ module.exports = function(grunt) {
     var result = {
       page: page,
       title: arguments.title || arguments.heading,
-      navGroup: arguments.navGroup
+      navGroup: arguments.navGroup,
+      first: arguments.first,
+      next: arguments.next,
+      nextText: arguments.nextText
     };
 
     if(arguments.route) {
