@@ -1,6 +1,11 @@
 ---
 title: Arrow Functions
 navGroup: .lessons
+first: true
+next: lessons/arrow-functions-context
+nextText: |
+    But Arrow Functions are not exactly like regular functions.  
+    Let's find out why
 heading: Arrow Functions
 code: |
     var values = [1, 2, 3, 4, 5, 6];
