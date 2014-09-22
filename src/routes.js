@@ -6,6 +6,9 @@ export var routes = [
     {
         "page": "home",
         "title": "Home",
+        "first": true,
+        "next": "lessons/arrow-functions",
+        "nextText": "Let's get started with our first lession -- Arrow Functions",
         "route": "/"
     },
     {
