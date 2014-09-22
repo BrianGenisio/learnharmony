@@ -1,7 +1,7 @@
 class StringCompiler {
-  transpile(code) {
+  transpile(code, moduleName) {
     let traceurCompiler = new traceur.Compiler({
-      modules: 'commonjs',
+      moduleName: moduleName,
       experimental: true
     });
     
