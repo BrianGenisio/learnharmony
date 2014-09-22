@@ -64,9 +64,12 @@ function updateNav(url) {
 function mapPage(pageName, url) {
   System.import(`src/pages/${pageName}.page`)
     .then(function({page}) {
-      $('.heading').html(page.heading);
-      $('.intro').html(page.intro);
+      $('.heading').html(page.heading || '');
+      $('.intro').html(page.intro || '');
       $('.editor').toggle(!page.hideEditor);
+      $('.next-text').html(page.nextText || '');
+      $('.next-link').toggle(!!page.next);
+      $('.next-link a').attr('href', '#' + (page.next || ''));
       editor.code = page.code || '';
       updateNav(url);
     }).catch(function(errors) {
