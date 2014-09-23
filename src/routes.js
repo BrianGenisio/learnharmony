@@ -27,8 +27,15 @@ export var routes = [
         "nextText": "But Arrow Functions are not exactly like regular functions.  \nLet's find out why\n"
     },
     {
-        "page": "lessons/destructuring",
-        "title": "Destructuring",
+        "page": "lessons/destructuring-arrays",
+        "title": "Array Destructuring",
         "navGroup": ".lessons"
+    },
+    {
+        "page": "lessons/destructuring",
+        "title": "Variable Destructuring",
+        "navGroup": ".lessons",
+        "next": "lessons/destructuring-arrays",
+        "nextText": "Destructuring isn't just for objects.  You can Destructure Arrays too!"
     }
 ];
