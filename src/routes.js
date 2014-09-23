@@ -27,6 +27,11 @@ export var routes = [
         "nextText": "But Arrow Functions are not exactly like regular functions.  \nLet's find out why\n"
     },
     {
+        "page": "lessons/default-parameters",
+        "title": "Default Parameters",
+        "navGroup": ".lessons"
+    },
+    {
         "page": "lessons/destructuring-arrays",
         "title": "Array Destructuring",
         "navGroup": ".lessons",
@@ -43,6 +48,8 @@ export var routes = [
     {
         "page": "lessons/property-shorthand",
         "title": "Property Shorthand",
-        "navGroup": ".lessons"
+        "navGroup": ".lessons",
+        "next": "lessons/default-parameters",
+        "nextText": "Want more shorthand syntax?  Let's talk about Default Parameters."
     }
 ];
