@@ -1,6 +1,8 @@
 ---
 title: Property Shorthand
 navGroup: .lessons
+next: lessons/default-parameters
+nextText: Want more shorthand syntax?  Let's talk about Default Parameters.
 heading: Property Shorthand
 code: |
     function makeParent(first, last) {
