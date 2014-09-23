@@ -29,7 +29,9 @@ export var routes = [
     {
         "page": "lessons/destructuring-arrays",
         "title": "Array Destructuring",
-        "navGroup": ".lessons"
+        "navGroup": ".lessons",
+        "next": "lessons/property-shorthand",
+        "nextText": "Did you notice something funny about those console.log calls?"
     },
     {
         "page": "lessons/destructuring",
@@ -37,5 +39,10 @@ export var routes = [
         "navGroup": ".lessons",
         "next": "lessons/destructuring-arrays",
         "nextText": "Destructuring isn't just for objects.  You can Destructure Arrays too!"
+    },
+    {
+        "page": "lessons/property-shorthand",
+        "title": "Property Shorthand",
+        "navGroup": ".lessons"
     }
 ];

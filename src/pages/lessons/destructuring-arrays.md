@@ -1,6 +1,8 @@
 ---
 title: Array Destructuring
 navGroup: .lessons
+next: lessons/property-shorthand
+nextText: Did you notice something funny about those console.log calls?
 heading: Array Destructuring
 code: |
     let a = 1, b = 2;
