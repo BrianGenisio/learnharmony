@@ -1,41 +1,60 @@
+import {consoleTemplate} from './console.template';
+
 class Console {
   constructor() {
-    this.hijackLog();
-    this.started = false;
+    this.hijackConsole();
   }
 
-  hijackLog() {
-    if(console.log.hijacked) return;
+  hijack(obj, funcName, action) {
+    if(obj[funcName].hijacked) return;
 
-    let oldLog = console.log;
+    let oldFunc = obj[funcName];
 
-    console.log = (...args) => {
-      oldLog.apply(console, args);
-      this.logToScreen(args);
+    obj[funcName] = (...args) => {
+      oldFunc.apply(obj, args);
+      action(args);
     };
 
-    console.log.hijacked = true;
+    obj[funcName].hijacked = true;
+  }
+
+  hijackConsole() {
+    this.hijack(console, 'log', args => this.logToScreen(args));
+    this.hijack(console, 'clear', () => this.clear());
   }
 
   stringify(obj) {
     return JSON.pruned(obj);
   }
 
+  prefix(line) {
+    return `console > ${line} \n`;
+  }
+
+  clear() {
+    if(!this.$log) return;
+
+    this.$log.text(this.prefix(''));
+    this.started = false;
+  }
+
   logToScreen(args) {
-    if(!this.$el) return;
+    if(!this.$log) return;
 
     if(!this.started) {
-      this.$el.text('');
+      this.$log.text('');
       this.started = true;
     }
 
     let line = args.map(arg => !arg ? 'undefined' : this.stringify(arg) || arg.toString()).join(' ');
-    this.$el.append(`console > ${line} \n`);
+    this.$log.append(this.prefix(line));
   }
 
   render($element) {
-    $element.html('<pre>console &gt; \n</pre>');
-    this.$el = $element.find('pre');
+    $element.html(consoleTemplate);
+    $element.find('#clear').click(() => this.clear());
+    this.$log = $element.find('pre');
+    this.clear();
   }
 }
 

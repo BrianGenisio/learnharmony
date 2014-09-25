@@ -6,14 +6,7 @@ export var appTemplate = `
 
 <div class="editor">
   <div class="col-md-6 editor-container"></div>
-  <div class="col-md-6">
-    <div class="form-group">
-      <div class="console-container"></div>
-    </div>
-    <div class="form-group">
-      <button id="clear" class="btn btn-default btn-block form-control">Clear</button>
-    </div>
-  </div>
+  <div class="col-md-6 console-container"></div>
 </div>
 
 `;
