@@ -46,10 +46,17 @@ export var routes = [
         "nextText": "Destructuring isn't just for objects.  You can Destructure Arrays too!"
     },
     {
-        "page": "lessons/property-shorthand",
-        "title": "Property Shorthand",
+        "page": "lessons/method-shorthand",
+        "title": "Method Shorthand",
         "navGroup": ".lessons",
         "next": "lessons/default-parameters",
         "nextText": "Want more shorthand syntax?  Let's talk about Default Parameters."
+    },
+    {
+        "page": "lessons/property-shorthand",
+        "title": "Property Shorthand",
+        "navGroup": ".lessons",
+        "next": "lessons/method-shorthand",
+        "nextText": "Want more shorthand syntax?  Let's talk about Method Shorthand."
     }
 ];
