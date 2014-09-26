@@ -27,9 +27,23 @@ export var routes = [
         "nextText": "But Arrow Functions are not exactly like regular functions.  \nLet's find out why\n"
     },
     {
+        "page": "lessons/block-scope-const",
+        "title": "Block Scope (const)",
+        "navGroup": ".lessons"
+    },
+    {
+        "page": "lessons/block-scope-let",
+        "title": "Block Scope (let)",
+        "navGroup": ".lessons",
+        "next": "lessons/block-scope-const",
+        "nextText": "There's another way to do block scoping.  Learn about \"const\" next."
+    },
+    {
         "page": "lessons/default-parameters",
         "title": "Default Parameters",
-        "navGroup": ".lessons"
+        "navGroup": ".lessons",
+        "next": "lessons/block-scope-let",
+        "nextText": "Next, let's find out two new ways to declare variables."
     },
     {
         "page": "lessons/destructuring-arrays",

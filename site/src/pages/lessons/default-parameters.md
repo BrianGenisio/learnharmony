@@ -1,6 +1,8 @@
 ---
 title: Default Parameters
 navGroup: .lessons
+next: lessons/block-scope-let
+nextText: Next, let's find out two new ways to declare variables.
 heading: Default Parameters
 code: |
     function logDefaults(a = 1, b = 2, c = 3) {
