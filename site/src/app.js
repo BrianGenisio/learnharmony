@@ -61,17 +61,31 @@ function updateNav(url) {
   $active.closest('li').parent().closest('li').addClass('active');
 }
 
+function animateContent(content) {
+  var $intro = $('.intro');
+  var $body = $('body');
+
+  $intro.fadeOut(function() {
+    $intro.html(content || '').fadeIn(function() {
+    });
+  });
+
+  $body.animate({scrollTop: 0});
+}
+
 function mapPage(pageName, url) {
   System.import(`src/pages/${pageName}.page`)
     .then(function({page}) {
       $('.heading').html(page.heading || '');
-      $('.intro').html(page.intro || '');
       $('.editor').toggle(!page.hideEditor);
       $('.next-text').html(page.nextText || '');
       $('.next-link').toggle(!!page.next);
       $('.next-link a').attr('href', '#' + (page.next || ''));
       editor.code = page.code || '';
       updateNav(url);
+
+      animateContent(page.intro);
+
     }).catch(function(errors) {
       console.log('failed to load page: ', errors);
     });
