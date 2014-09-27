@@ -78,6 +78,7 @@ function mapPage(pageName, url) {
     .then(function({page}) {
       $('.heading').html(page.heading || '');
       $('.editor').toggle(!page.hideEditor);
+      $('#disqus_thread').toggle(!page.hideComments);
       $('.next-text').html(page.nextText || '');
       $('.next-link').toggle(!!page.next);
       $('.next-link a').attr('href', '#' + (page.next || ''));
