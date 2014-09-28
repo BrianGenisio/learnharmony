@@ -33,8 +33,9 @@ module.exports = function(grunt) {
 
     pages: {
       lessons: {
-        baseDir: 'site/src/pages/',
-        src: ['site/src/pages/**/*.md'],
+        baseDir: 'site/src/pages/markdown',
+        src: ['site/src/pages/markdown/**/*.md'],
+        processed: 'site/src/pages/processed',
         routes: 'site/src/routes.js'
       }
     }
