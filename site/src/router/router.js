@@ -9,6 +9,8 @@ class Router {
 
   handleRouteChange() {
     var url = location.hash.slice(1) || '/';
+    url = url[0] === '!' ? url.slice(1) : url;
+    url = url.split('#')[0];
     var handler = this.routes[url];
 
     if(handler) handler(url);

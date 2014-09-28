@@ -86,12 +86,7 @@ function mapPage(pageName, url) {
       updateNav(url);
 
       animateContent(page.intro);
-      window.resetDisqus({
-        shortname: 'learnharmony',
-        title: page.heading,
-        url: 'http://learnharmony.org/#' + pageName,
-        identifier: pageName
-      });
+      window.resetDisqus(pageName, page.heading);
 
     }).catch(function(errors) {
       console.log('failed to load page: ', errors);
