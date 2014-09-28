@@ -75,7 +75,9 @@
         <div class="container" id="disqus_thread"></div>
         <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-            var disqus_shortname = 'learnharmony'; // required: replace example with your forum shortname
+            var disqus_shortname = 'learnharmony'; 
+            var disqus_identifier = 'home';
+            var disqus_url = 'http://learnharmony.org/#';
 
             /* * * DON'T EDIT BELOW THIS LINE * * */
             (function() {
@@ -83,6 +85,19 @@
                 dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
             })();
+
+            window.resetDisqus = function(hash, heading) {
+                if(!DISQUS) return;
+
+                DISQUS.reset({
+                    reload: true,
+                    config: function () {  
+                      this.page.identifier = hash;  
+                      this.page.url = "http://learnharmony.org/#" + hash;
+                      this.page.title = heading;
+                    }
+                  });
+            }
         </script>
         <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>

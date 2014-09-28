@@ -73,17 +73,6 @@ function animateContent(content) {
   $body.animate({scrollTop: 0});
 }
 
-function reloadComments(hash, heading) {
-  DISQUS.reset({
-    reload: true,
-    config: function () {  
-      this.page.identifier = hash;  
-      this.page.url = "http://learnharmony.org/#" + hash;
-      this.page.title = heading;
-    }
-  });
-}
-
 function mapPage(pageName, url) {
   System.import(`src/pages/${pageName}.page`)
     .then(function({page}) {
@@ -97,7 +86,7 @@ function mapPage(pageName, url) {
       updateNav(url);
 
       animateContent(page.intro);
-      reloadComments(pageName, heading);
+      window.resetDisqus(pageName, page.heading);
 
     }).catch(function(errors) {
       console.log('failed to load page: ', errors);
