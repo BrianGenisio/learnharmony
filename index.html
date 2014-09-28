@@ -74,22 +74,25 @@
 
         <div class="container" id="disqus_thread"></div>
         <script type="text/javascript">
-            function resetDisqus(config) { 
+            function resetDisqus(hash, title, debug) { 
+                var identifier = hash;
+                var url = 'http://learnharmony.org/#' + hash;
+
               if (resetDisqus.loaded) {
                 DISQUS.reset({
                   reload: true,
                   config: function () {  
-                    this.page.identifier = config.identifier;
-                    this.page.url        = config.url;
-                    this.page.title      = config.title;
+                    this.page.identifier = identifier;
+                    this.page.url        = url;
+                    this.page.title      = title;
                   }
                 });
               } else {
-                var body = "var disqus_shortname  = \"" + config.shortname  + "\";\n" + 
-                           "var disqus_title      = \"" + config.title      + "\";\n" + 
-                           "var disqus_identifier = \"" + config.identifier + "\";\n" +
-                           "var disqus_url        = \"" + config.url        + "\";\n";
-                if (config.developer) {
+                var body = "var disqus_shortname  = \"learnharmony\";\n" + 
+                           "var disqus_title      = \"" + title      + "\";\n" + 
+                           "var disqus_identifier = \"" + identifier + "\";\n" +
+                           "var disqus_url        = \"" + url        + "\";\n";
+                if (debug) {
                   body +=  "var disqus_developer  = 1;\n"
                 }
                 appendScriptTagWithBody(body);
