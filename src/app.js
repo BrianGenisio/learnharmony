@@ -1,6 +1,7 @@
 import {appTemplate} from 'src/app.template';
 import Editor from 'src/editor/editor';
 import Console from 'src/console/console';
+import Disqus from 'src/disqus/disqus';
 import AppRouter from 'src/app-router';
 import {routes} from 'src/routes';
 
@@ -11,6 +12,8 @@ editor.render($('#app-container .editor-container'));
 
 let console = new Console();
 console.render($('#app-container .console-container'));
+
+let disqus = new Disqus('learnharmony', 'http://learnharmony.org/#');
 
 populateNav(routes);
 
@@ -86,7 +89,7 @@ function mapPage(pageName, url) {
       updateNav(url);
 
       animateContent(page.intro);
-      window.resetDisqus(pageName, page.heading);
+      disqus.reload(pageName, page.heading);
 
     }).catch(function(errors) {
       console.log('failed to load page: ', errors);
