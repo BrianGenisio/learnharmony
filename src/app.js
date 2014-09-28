@@ -77,7 +77,7 @@ function animateContent(content) {
 }
 
 function mapPage(pageName, url) {
-  System.import(`src/pages/${pageName}.page`)
+  System.import(`src/pages/processed/${pageName}.page`)
     .then(function({page}) {
       $('.heading').html(page.heading || '');
       $('.editor').toggle(!page.hideEditor);
