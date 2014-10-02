@@ -27,15 +27,11 @@ module.exports = function(grunt) {
 
     this.files.forEach(function(list) {
 
-      console.log('list: ', list.src);
-
       list.src.forEach(function(filePath) {
         var src = grunt.file.read(filePath);
-        var destPath = list.processed + filePath
+        var destPath = list.processed + '/' +  filePath
           .replace(list.baseDir, '')
           .replace('.md', '.page.js');
-
-        console.log('output',  destPath)
 
         try {
           var parsed = fm(src);
