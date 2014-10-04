@@ -5,6 +5,7 @@ heading: Template Strings (interpolation)
 code: |
     let piecesPerPie = 6;
     let numberOfPies = 3;
+
     console.log(`There are ${numberOfPies} pies, so we \
     have ${piecesPerPie * numberOfPies} pieces.`);
 ---
