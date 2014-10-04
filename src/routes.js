@@ -78,8 +78,6 @@ export var routes = [
     {
         "page": "lessons/template-strings",
         "title": "Template Strings",
-        "navGroup": ".lessons",
-        "next": "lessons/template-strings-tags",
-        "nextText": "Template Strings are more powerful than this when you \"tag\" them."
+        "navGroup": ".lessons"
     }
 ];

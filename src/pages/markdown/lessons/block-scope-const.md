@@ -1,6 +1,8 @@
 ---
 title: Block Scope (const)
 navGroup: .lessons
+next: lessons/template-strings
+nextText: Now let's look at Template Strings.
 heading: Block Scope ("const" keyword)
 code: |
     const foo = "bar";
