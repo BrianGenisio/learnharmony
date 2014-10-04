@@ -38,6 +38,10 @@ class Console {
     this.started = false;
   }
 
+  escape(text) {
+    return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
   logToScreen(args) {
     if(!this.$log) return;
 
@@ -47,7 +51,7 @@ class Console {
     }
 
     let line = args.map(arg => !arg ? 'undefined' : this.stringify(arg) || arg.toString()).join(' ');
-    this.$log.append(this.prefix(line));
+    this.$log.append(this.prefix(this.escape(line)));
   }
 
   render($element) {
