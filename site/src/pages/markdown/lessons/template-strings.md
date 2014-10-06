@@ -1,11 +1,13 @@
 ---
 title: Template Strings
 navGroup: .lessons
+next: lessons/template-strings-tags
+nextText: Template Strings are more powerful than this when you "tag" them.
 heading: Template Strings (interpolation)
 code: |
     let piecesPerPie = 6;
     let numberOfPies = 3;
-
+    
     console.log(`There are ${numberOfPies} pies, so we \
     have ${piecesPerPie * numberOfPies} pieces.`);
 ---

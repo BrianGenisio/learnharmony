@@ -76,8 +76,15 @@ export var routes = [
         "nextText": "Want more shorthand syntax?  Let's talk about Method Shorthand."
     },
     {
+        "page": "lessons/template-strings-tags",
+        "title": "Tagged Template Strings",
+        "navGroup": ".lessons"
+    },
+    {
         "page": "lessons/template-strings",
         "title": "Template Strings",
-        "navGroup": ".lessons"
+        "navGroup": ".lessons",
+        "next": "lessons/template-strings-tags",
+        "nextText": "Template Strings are more powerful than this when you \"tag\" them."
     }
 ];
