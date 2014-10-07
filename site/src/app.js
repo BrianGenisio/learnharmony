@@ -79,6 +79,7 @@ function animateContent(content) {
 function mapPage(pageName, url) {
   System.import(`src/pages/processed/${pageName}.page`)
     .then(function({page}) {
+      document.title = `Learn Harmony -- ${page.title}`;
       $('.heading').html(page.heading || '');
       $('.editor').toggle(!page.hideEditor);
       $('#disqus_thread').toggle(!page.hideComments);
