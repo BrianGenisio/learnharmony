@@ -40,6 +40,10 @@ export var routes = [
         "nextText": "Object Literals"
     },
     {
+        "page": "es6discuss/coroutines",
+        "title": "Coroutines"
+    },
+    {
         "page": "es6discuss/default-values",
         "title": "Default Parameters",
         "next": "es6discuss/destructuring-objects",
@@ -64,10 +68,34 @@ export var routes = [
         "nextText": "Default Values"
     },
     {
+        "page": "es6discuss/for-of",
+        "title": "For/of loops",
+        "next": "es6discuss/iterators",
+        "nextText": "Iterators"
+    },
+    {
+        "page": "es6discuss/generators",
+        "title": "Generators",
+        "next": "es6discuss/for-of",
+        "nextText": "For/Of Loops"
+    },
+    {
+        "page": "es6discuss/iterators-two-way",
+        "title": "Two-way Iterators",
+        "next": "es6discuss/coroutines",
+        "nextText": "Coroutines"
+    },
+    {
+        "page": "es6discuss/iterators",
+        "title": "Iterators",
+        "next": "es6discuss/iterators-two-way",
+        "nextText": "Iterators (Two Way)"
+    },
+    {
         "page": "es6discuss/modules",
         "title": "Modules",
-        "next": "es6discuss/",
-        "nextText": null
+        "next": "es6discuss/generators",
+        "nextText": "Generators"
     },
     {
         "page": "es6discuss/object-literals",
