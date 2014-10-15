@@ -1,7 +1,7 @@
 ---
 title: Modules
-next: es6discuss/
-nextText: 
+next: es6discuss/generators
+nextText: Generators
 heading: Modules
 code: |
     class Person {
