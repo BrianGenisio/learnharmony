@@ -18,8 +18,8 @@ export var routes = [
     {
         "page": "es6discuss/classes-extended-revisited",
         "title": "Extending Classes (Revisited)",
-        "next": "es6discuss/",
-        "nextText": null
+        "next": "es6discuss/modules",
+        "nextText": "Modules"
     },
     {
         "page": "es6discuss/classes-extended",
@@ -62,6 +62,12 @@ export var routes = [
         "title": "Object Literals -- Dynamic Properties",
         "next": "es6discuss/default-values",
         "nextText": "Default Values"
+    },
+    {
+        "page": "es6discuss/modules",
+        "title": "Modules",
+        "next": "es6discuss/",
+        "nextText": null
     },
     {
         "page": "es6discuss/object-literals",

@@ -7,6 +7,7 @@ export var editorTemplate = `
   <div class="form-group">
     <button id="run" class="btn btn-primary btn-block form-control">Run!</button>
   </div>
+  <div>Module Name: <span class="module-name"></span></div>
 </div>
 
 `;
