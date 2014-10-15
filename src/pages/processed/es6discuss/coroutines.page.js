@@ -1,6 +1,6 @@
 export var page = {
     "title": "Coroutines",
     "heading": "Coroutines",
-    "code": "co(function *(){\n  let a = yield get('http://google.com');\n  let b = yield get('http://yahoo.com');\n  let c = yield get('http://cloudup.com');\n\n  console.log(a[0].statusCode);\n  console.log(b[0].statusCode);\n  console.log(c[0].statusCode);\n})();",
+    "code": "co(function *(){\n  let index = yield $.get('index.html');\n  let bower = yield $.get('bower.json');\n\n  console.log(index.length);\n  console.log(bower);\n})();",
     "intro": ""
 };
