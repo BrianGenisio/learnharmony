@@ -1,0 +1,31 @@
+{
+  "name": "co",
+  "version": "3.0.7",
+  "description": "generator async flow control goodness",
+  "main": "co.js",
+  "keywords": [
+    "async",
+    "flow",
+    "generator",
+    "coro",
+    "coroutine"
+  ],
+  "license": "MIT",
+  "ignore": [
+      "test",
+      "examples",
+      ".gitignore",
+      "travis.yml",
+      "benchmark.js",
+      "bower.json",
+      "component.json",
+      "History.md",
+      "index.js",
+      "Makefile",
+      "package.json",
+      "Readme.md"
+  ],
+  "dependencies": {
+    "setimmediate": ">=1.0.1"
+  }
+}

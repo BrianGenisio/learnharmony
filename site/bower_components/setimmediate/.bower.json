@@ -1,0 +1,15 @@
+{
+  "name": "setimmediate",
+  "version": "1.0.1",
+  "main": "setImmediate.js",
+  "homepage": "https://github.com/components/setImmediate",
+  "_release": "1.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.1",
+    "commit": "0feb64d1277f05c39cfb4b70843a3457b52f6302"
+  },
+  "_source": "git://github.com/components/setImmediate.git",
+  "_target": ">=1.0.1",
+  "_originalSource": "setimmediate"
+}

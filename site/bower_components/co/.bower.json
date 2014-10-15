@@ -1,0 +1,42 @@
+{
+  "name": "co",
+  "version": "3.0.7",
+  "description": "generator async flow control goodness",
+  "main": "co.js",
+  "keywords": [
+    "async",
+    "flow",
+    "generator",
+    "coro",
+    "coroutine"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "test",
+    "examples",
+    ".gitignore",
+    "travis.yml",
+    "benchmark.js",
+    "bower.json",
+    "component.json",
+    "History.md",
+    "index.js",
+    "Makefile",
+    "package.json",
+    "Readme.md"
+  ],
+  "dependencies": {
+    "setimmediate": ">=1.0.1"
+  },
+  "homepage": "https://github.com/tpisto/co",
+  "_release": "3.0.7",
+  "_resolution": {
+    "type": "version",
+    "tag": "3.0.7",
+    "commit": "35de348f1dc58a31a18004e608f335cc5cc327e7"
+  },
+  "_source": "git://github.com/tpisto/co.git",
+  "_target": "~3.0.7",
+  "_originalSource": "co",
+  "_direct": true
+}
