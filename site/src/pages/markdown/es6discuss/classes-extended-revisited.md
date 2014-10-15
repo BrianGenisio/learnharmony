@@ -1,7 +1,7 @@
 ---
 title: Extending Classes (Revisited)
-next: es6discuss/
-nextText: 
+next: es6discuss/modules
+nextText: Modules
 heading: Revisiting Extending Classes
 code: |
     class Person {
