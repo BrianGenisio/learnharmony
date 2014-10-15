@@ -4,6 +4,90 @@ export var routes = [
         "title": "About"
     },
     {
+        "page": "es6discuss/arrow-functions",
+        "title": "Arrow Functions",
+        "next": "es6discuss/string-interpolation",
+        "nextText": "String Interpolation"
+    },
+    {
+        "page": "es6discuss/block-scoping",
+        "title": "Block Scoping",
+        "next": "es6discuss/const",
+        "nextText": "Const values"
+    },
+    {
+        "page": "es6discuss/classes-extended-revisited",
+        "title": "Extending Classes (Revisited)",
+        "next": "es6discuss/",
+        "nextText": null
+    },
+    {
+        "page": "es6discuss/classes-extended",
+        "title": "Extending Classes",
+        "next": "es6discuss/block-scoping",
+        "nextText": "Block Scoping"
+    },
+    {
+        "page": "es6discuss/classes",
+        "title": "Classes",
+        "next": "es6discuss/classes-extended",
+        "nextText": "Extending Classes"
+    },
+    {
+        "page": "es6discuss/const",
+        "title": "Block Scoping",
+        "next": "es6discuss/object-literals",
+        "nextText": "Object Literals"
+    },
+    {
+        "page": "es6discuss/default-values",
+        "title": "Default Parameters",
+        "next": "es6discuss/destructuring-objects",
+        "nextText": "Destructuring Objects"
+    },
+    {
+        "page": "es6discuss/destructuring-arrays",
+        "title": "Destructuring Arrays",
+        "next": "es6discuss/rest",
+        "nextText": "Rest parameters"
+    },
+    {
+        "page": "es6discuss/destructuring-objects",
+        "title": "Destructuring Objects",
+        "next": "es6discuss/destructuring-arrays",
+        "nextText": "Destructuring Arrays"
+    },
+    {
+        "page": "es6discuss/dynamic-prop-names",
+        "title": "Object Literals -- Dynamic Properties",
+        "next": "es6discuss/default-values",
+        "nextText": "Default Values"
+    },
+    {
+        "page": "es6discuss/object-literals",
+        "title": "Object Literals",
+        "next": "es6discuss/dynamic-prop-names",
+        "nextText": "Dynamic Property Names"
+    },
+    {
+        "page": "es6discuss/rest",
+        "title": "Rest Parameters",
+        "next": "es6discuss/spread",
+        "nextText": "Spreadding parameters"
+    },
+    {
+        "page": "es6discuss/spread",
+        "title": "Spread Parameters",
+        "next": "es6discuss/classes-extended-revisited",
+        "nextText": "Class Extensions Revisited"
+    },
+    {
+        "page": "es6discuss/string-interpolation",
+        "title": "String Interpolation",
+        "next": "es6discuss/classes",
+        "nextText": "Classes"
+    },
+    {
         "page": "home",
         "title": "Home",
         "first": true,
