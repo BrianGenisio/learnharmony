@@ -1,9 +1,9 @@
 ---
-title: Block Scope (let)
+title: Classes
 navGroup: .lessons
-next: lessons/block-scope-const
-nextText: There's another way to do block scoping.  Learn about "const" next.
-heading: Block Scope ("let" keyword)
+next: lessons/classes-extended
+nextText: Classes can be extended!  Find out how.
+heading: Classes
 code: |
     class Person {
       constructor(first, last) {

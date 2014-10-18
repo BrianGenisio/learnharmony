@@ -159,11 +159,16 @@ export var routes = [
         "nextText": "There's another way to do block scoping.  Learn about \"const\" next."
     },
     {
+        "page": "lessons/classes-extended",
+        "title": "Classes -- Extended",
+        "navGroup": ".lessons"
+    },
+    {
         "page": "lessons/classes",
-        "title": "Block Scope (let)",
+        "title": "Classes",
         "navGroup": ".lessons",
-        "next": "lessons/block-scope-const",
-        "nextText": "There's another way to do block scoping.  Learn about \"const\" next."
+        "next": "lessons/classes-extended",
+        "nextText": "Classes can be extended!  Find out how."
     },
     {
         "page": "lessons/default-parameters",
