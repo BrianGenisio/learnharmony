@@ -159,6 +159,13 @@ export var routes = [
         "nextText": "There's another way to do block scoping.  Learn about \"const\" next."
     },
     {
+        "page": "lessons/classes",
+        "title": "Block Scope (let)",
+        "navGroup": ".lessons",
+        "next": "lessons/block-scope-const",
+        "nextText": "There's another way to do block scoping.  Learn about \"const\" next."
+    },
+    {
         "page": "lessons/default-parameters",
         "title": "Default Parameters",
         "navGroup": ".lessons",
@@ -196,7 +203,9 @@ export var routes = [
     {
         "page": "lessons/template-strings-tags",
         "title": "Tagged Template Strings",
-        "navGroup": ".lessons"
+        "navGroup": ".lessons",
+        "next": "lessons/classes",
+        "nextText": "Classes"
     },
     {
         "page": "lessons/template-strings",

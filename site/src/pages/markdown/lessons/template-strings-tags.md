@@ -1,6 +1,8 @@
 ---
 title: Tagged Template Strings
 navGroup: .lessons
+next: lessons/classes
+nextText: Classes
 heading: Template Strings (tags)
 code: |
     function uc(strings, ...values) {
