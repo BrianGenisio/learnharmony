@@ -91,6 +91,7 @@ function mapPage(pageName, url) {
 
       animateContent(page.intro);
       disqus.reload(pageName, page.heading);
+      ga('send', 'pageview', pageName);
 
     }).catch(function(errors) {
       console.log('failed to load page: ', errors);
