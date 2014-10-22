@@ -7,18 +7,9 @@ class Console {
 
   hijack(obj, funcName, action) {
 
-    if(!obj[funcName]) {
-      obj[funcName] = (...args) => {
-        action(args);
-      };
+    if(obj[funcName] && obj[funcName].hijacked) return;
 
-      obj[funcName].hijacked = true;
-      return;
-    }
-
-    if(obj[funcName].hijacked) return;
-
-    let oldFunc = obj[funcName];
+    let oldFunc = obj[funcName] || function() {};
 
     obj[funcName] = (...args) => {
       oldFunc.apply(obj, args);
