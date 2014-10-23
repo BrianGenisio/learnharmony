@@ -10,3 +10,5 @@ code: |
       console.log(bower);
     })();
 ---
+<script src="bower_components/co/co.js"></script>
+<script src="bower_components/setimmediate/setImmediate.js"></script> 
