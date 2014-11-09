@@ -10,7 +10,6 @@ code: |
     console.log({a, b});
 ---
 
-### Array Descructuring
 Destructuring works on Arrays as well.
 
 ```
