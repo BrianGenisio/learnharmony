@@ -1,7 +1,7 @@
 ---
 title: Classes -- Extended
 navGroup: .lessons
-heading: Classes
+heading: Classes - Extended
 code: |
     class Person {
       constructor(first, last) {
