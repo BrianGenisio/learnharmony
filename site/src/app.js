@@ -66,14 +66,13 @@ function updateNav(url) {
 
 function animateContent(content) {
   var $intro = $('.intro');
-  var $body = $('body');
+  var $html = $('html');
 
-  $intro.fadeOut(function() {
-    $intro.html(content || '').fadeIn(function() {
-    });
+  $html.animate({scrollTop: 0});
+  $intro.fadeOut( () => {
+    $intro.html(content || '').fadeIn();
   });
 
-  $body.animate({scrollTop: 0});
 }
 
 function mapPage(pageName, url) {
