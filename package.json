@@ -14,7 +14,11 @@
     "highlight.js": "^8.2.0",
     "marked": "^0.3.2"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BrianGenisio/learnharmony.git"
+  },
   "scripts": {
     "test": "grunt"
-  },
+  }
 }
