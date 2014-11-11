@@ -4,6 +4,8 @@
   "description": "A website for learning JavaScript.next (ES6)",
   "author": "Brian Genisio",
   "license": "ISC",
+  "dependencies": {
+  },
   "devDependencies": {
     "front-matter": "^0.2.0",
     "grunt": "^0.4.5",
