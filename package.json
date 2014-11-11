@@ -1,12 +1,8 @@
 {
-  "name": "learnes6",
-  "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
+  "name": "LearnHarmony.com",
+  "version": "0.1.0",
+  "description": "A website for learning JavaScript.next (ES6)",
+  "author": "Brian Genisio",
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
@@ -17,5 +13,8 @@
     "grunt-http-server": "^1.0.0",
     "highlight.js": "^8.2.0",
     "marked": "^0.3.2"
-  }
+  },
+  "scripts": {
+    "test": "grunt"
+  },
 }
