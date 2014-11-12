@@ -4,6 +4,12 @@ export var routes = [
         "title": "About"
     },
     {
+        "page": "es6discuss/array-methods",
+        "title": "Array Methods",
+        "next": "es6discuss/classes",
+        "nextText": "Classes"
+    },
+    {
         "page": "es6discuss/arrow-functions",
         "title": "Arrow Functions",
         "next": "es6discuss/string-interpolation",
@@ -118,8 +124,14 @@ export var routes = [
     {
         "page": "es6discuss/string-interpolation",
         "title": "String Interpolation",
-        "next": "es6discuss/classes",
-        "nextText": "Classes"
+        "next": "es6discuss/string-methods",
+        "nextText": "String Methods"
+    },
+    {
+        "page": "es6discuss/string-methods",
+        "title": "String Methods",
+        "next": "es6discuss/array-methods",
+        "nextText": "Array Methods"
     },
     {
         "page": "home",
