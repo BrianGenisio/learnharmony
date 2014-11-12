@@ -100,14 +100,20 @@ export var routes = [
     {
         "page": "es6discuss/modules",
         "title": "Modules",
-        "next": "es6discuss/generators",
-        "nextText": "Generators"
+        "next": "es6discuss/promises",
+        "nextText": "Promises"
     },
     {
         "page": "es6discuss/object-literals",
         "title": "Object Literals",
         "next": "es6discuss/dynamic-prop-names",
         "nextText": "Dynamic Property Names"
+    },
+    {
+        "page": "es6discuss/promises",
+        "title": "Promises",
+        "next": "es6discuss/generators",
+        "nextText": "Generators"
     },
     {
         "page": "es6discuss/rest",
