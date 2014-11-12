@@ -1,5 +1,7 @@
 ---
 title: Coroutines
+next: es6discuss/maps-sets
+nextText: Maps and Sets
 heading: Coroutines
 code: |
     co(function *(){

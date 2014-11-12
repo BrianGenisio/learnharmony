@@ -34,6 +34,10 @@ export var routes = [
         "nextText": "Block Scoping"
     },
     {
+        "page": "es6discuss/classes-private",
+        "title": "Private Properties in Classes"
+    },
+    {
         "page": "es6discuss/classes",
         "title": "Classes",
         "next": "es6discuss/classes-extended",
@@ -47,7 +51,9 @@ export var routes = [
     },
     {
         "page": "es6discuss/coroutines",
-        "title": "Coroutines"
+        "title": "Coroutines",
+        "next": "es6discuss/maps-sets",
+        "nextText": "Maps and Sets"
     },
     {
         "page": "es6discuss/default-values",
@@ -96,6 +102,12 @@ export var routes = [
         "title": "Iterators",
         "next": "es6discuss/iterators-two-way",
         "nextText": "Iterators (Two Way)"
+    },
+    {
+        "page": "es6discuss/maps-sets",
+        "title": "Maps and Sets",
+        "next": "es6discuss/classes-private",
+        "nextText": "Private Class Members"
     },
     {
         "page": "es6discuss/modules",
