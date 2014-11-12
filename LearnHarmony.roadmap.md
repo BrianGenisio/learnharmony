@@ -11,7 +11,6 @@
 
 # New Stuff
 
-- Promise
 - New Array Stuff (Array.from, keys/entries/values)
 - Maps
 - Private Fields

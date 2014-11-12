@@ -14,7 +14,7 @@
     "tests"
   ],
   "dependencies": {
-    "traceur": "~0.0.61",
+    "traceur": "~0.0.74",
     "bootstrap": "~3.2.0",
     "codemirror": "~4.5.0",
     "highlightjs": "~8.0.0",
