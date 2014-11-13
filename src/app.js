@@ -19,6 +19,13 @@ populateNav(routes);
 
 new AppRouter(routes).start(mapPage);
 
+if(!window.Proxy) {
+  window.Proxy = function(target) {
+    window.console.log('This system does not support Proxy.  Try a browser that does (like Firefox)');
+    return target;
+  };
+}
+
 function navEntry(route) {
   var result = `
 <li>

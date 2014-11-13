@@ -1,5 +1,7 @@
 ---
 title: Private Properties in Classes
+next: es6discuss/proxies
+nextText: Proxies
 heading: Private Properties in Classes
 code: |
     let priv = new WeakMap();

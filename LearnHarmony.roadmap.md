@@ -12,10 +12,6 @@
 # New Stuff
 
 - New Array Stuff (Array.from, keys/entries/values)
-- Maps
-- Private Fields
-- Proxies
-
 
 # Transpilers
 
