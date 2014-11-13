@@ -12,7 +12,7 @@ code: |
 
     let generator = getValues();
     console.log(generator.next());
-    console.log(generator.next(10));
-    console.log(generator.next(20));
+    console.log(generator.next(100));
+    console.log(generator.next(200));
     console.log(generator.next());
 ---

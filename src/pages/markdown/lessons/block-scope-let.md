@@ -10,13 +10,7 @@ code: |
             let zed = 'alive'; 
         }
 
-        if(true) {
-            try {
-                console.log("Zed is " + zed);
-            } catch(e) {
-                console.log("Zed's dead"); 
-            }
-        }
+        console.log("Zed is " + zed);
     }
 
     blockScoped();
@@ -45,9 +39,7 @@ function blockScoped() {
         let zed = 'alive'; // zed is not "hoisted" out of this block
     }
 
-    if(true) {
-        console.log('zed is ' + zed); // zed is not visible
-    }
+    console.log('zed is ' + zed); // zed is not visible
 }
 ```
 
