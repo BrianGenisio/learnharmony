@@ -35,7 +35,9 @@ export var routes = [
     },
     {
         "page": "es6discuss/classes-private",
-        "title": "Private Properties in Classes"
+        "title": "Private Properties in Classes",
+        "next": "es6discuss/proxies",
+        "nextText": "Proxies"
     },
     {
         "page": "es6discuss/classes",
@@ -126,6 +128,10 @@ export var routes = [
         "title": "Promises",
         "next": "es6discuss/generators",
         "nextText": "Generators"
+    },
+    {
+        "page": "es6discuss/proxies",
+        "title": "Proxies"
     },
     {
         "page": "es6discuss/rest",
