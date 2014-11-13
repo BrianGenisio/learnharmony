@@ -21,7 +21,7 @@ code: |
       }
 
       toString() {
-        return `${super()} with the power of ${this.superPower}`;
+        return `${super.toString()} with the power of ${this.superPower}`;
       }
     }
 
@@ -40,7 +40,7 @@ class SuperPerson extends Person {
   }
 
   toString() {
-    return `${super()} with the power of ${this.superPower}`;
+    return `${super.toString()} with the power of ${this.superPower}`;
   }
 }
 ```

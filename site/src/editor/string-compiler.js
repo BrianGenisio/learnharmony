@@ -2,7 +2,8 @@ class StringCompiler {
   transpile(code, moduleName) {
     let traceurCompiler = new traceur.Compiler({
       moduleName: moduleName,
-      experimental: true
+      experimental: true,
+      freeVariableChecker: true
     });
     
     let transpiled = traceurCompiler.compile(code);
