@@ -1,17 +1,20 @@
 ---
 title: Object Literals
 next: es6discuss/dynamic-prop-names
-nextText: Dynamic Property Names
-heading: Updates to Object Literals
+next: es6discuss/default-values
+nextText: Default Values
 code: |
+    let key = "someKey";
     let value = 55;
 
     let obj = { 
-       value,
-       toString() {
-         return `The value is ${this.value}`;
-       }
+      value,
+      [key + ' times 2']: value,
+      toString() {
+        return `The value is ${this.value}`;
+      }
     };
 
+    console.log(obj);
     console.log(obj.toString());
 ---

@@ -1,7 +1,7 @@
 ---
 title: For/of loops
-next: es6discuss/iterators
-nextText: Iterators
+next: es6discuss/iterators-two-way
+nextText: Iterators (Two Way)
 heading: For/of loops
 code: |
     function* getValues() {

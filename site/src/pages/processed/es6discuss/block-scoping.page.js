@@ -3,6 +3,6 @@ export var page = {
     "next": "es6discuss/const",
     "nextText": "Const values",
     "heading": "Block Scoping",
-    "code": "function testBlockScoping() {\n  if(true) {\n    var functionScoped = 'function';\n    let blockScoped = 'block';\n  }\n\n  try {\n    console.log(functionScoped, blockScoped);\n  } catch(e) {\n    console.log('FAILED!!');\n  }\n}\n\ntestBlockScoping();",
+    "code": "function testBlockScoping() {\n  if(true) {\n    var functionScoped = 'function';\n    let blockScoped = 'block';\n  }\n\n  console.log(functionScoped, blockScoped);\n}\n\ntestBlockScoping();",
     "intro": ""
 };

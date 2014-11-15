@@ -1,7 +1,7 @@
 ---
 title: String Interpolation
 next: es6discuss/string-methods
-nextText: String Methods
+nextText: String/Array Methods
 heading: String Interpolation
 code: |
     var person = {

@@ -10,11 +10,7 @@ code: |
         let blockScoped = 'block';
       }
 
-      try {
-        console.log(functionScoped, blockScoped);
-      } catch(e) {
-        console.log('FAILED!!');
-      }
+      console.log(functionScoped, blockScoped);
     }
 
     testBlockScoping();
