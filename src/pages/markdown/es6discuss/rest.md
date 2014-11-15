@@ -1,7 +1,7 @@
 ---
 title: Rest Parameters
-next: es6discuss/spread
-nextText: Spreadding parameters
+next: es6discuss/modules
+nextText: Modules
 heading: Rest Parameters
 code: |
     function format(fmt, ...values) {
@@ -9,4 +9,12 @@ code: |
     }
 
     format('%d: foobar, %s', 55, 'blah');
+
+
+    function add(one, two, three) {
+      console.log(one + two + three);
+    }
+
+    let values = [1, 2, 3];
+    add(...values);
 ---

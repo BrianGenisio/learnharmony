@@ -1,3 +1,0 @@
-export var page = {
-    "intro": ""
-};
