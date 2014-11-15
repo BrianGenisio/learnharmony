@@ -1,8 +1,8 @@
 ---
 title: Object Literals
-next: es6discuss/dynamic-prop-names
 next: es6discuss/default-values
 nextText: Default Values
+heading: Object Literals
 code: |
     let key = "someKey";
     let value = 55;
