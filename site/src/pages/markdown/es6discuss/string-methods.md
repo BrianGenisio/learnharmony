@@ -1,8 +1,8 @@
 ---
 title: String/Array Methods
-next: es6discuss/array-methods
 next: es6discuss/classes
 nextText: Classes
+heading: String/Array Methods
 code: |
     var name = "John Oliver";
     var data = [1, 2, 3, 4];
