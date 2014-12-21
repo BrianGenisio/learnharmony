@@ -17,7 +17,7 @@ That will watch for changes and rebuild the static assets.  It will also start a
 
 # Contributing
 
-Yes, I hapily take contributions.  Please make sure that running `grunt` comes out without errors.  There are no unit tests right now, but there may be in the future.  This project is hooked up to [Travis CI](https://travis-ci.org/BrianGenisio/learnharmony) but it will not automatically deploy.
+Yes, I happily take contributions.  Please make sure that running `grunt` comes out without errors.  There are no unit tests right now, but there may be in the future.  This project is hooked up to [Travis CI](https://travis-ci.org/BrianGenisio/learnharmony) but it will not automatically deploy.
 
 # Want to chat?
 
