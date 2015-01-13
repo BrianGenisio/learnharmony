@@ -43,6 +43,6 @@ function blockScoped() {
 }
 ```
 
-Because of this, I'm starting to write all of my variables using `let` instead of `var` unless I really want block scope, which is rare.
+Because of this, I'm starting to write all of my variables using `let` instead of `var` unless I really want function scope, which is rare.
 
 ### Give it a try
