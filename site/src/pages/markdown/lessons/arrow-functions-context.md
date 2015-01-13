@@ -21,8 +21,8 @@ There are two differences:
 0. **Function context (this) has lexical scope**
 Basically, this means that `this` is the `this` from the scope that defines the function, not the context that calls you. Context modifiers (`call`, `apply`, `bind`, etc) have no affect over the value of `this`.  See the example below
 
-0. **Arror Functions are not constructors**
-You can't use the "new" operator on Arror Functions.  In other words, this will result in a type error:
+0. **Arrow Functions are not constructors**
+You can't use the "new" operator on Arrow Functions.  In other words, this will result in a type error:
 ```
 let NotGood = () => {};
 let wontWork = new NotGood();
