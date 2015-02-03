@@ -30,11 +30,18 @@ class Editor {
   execute() {
     this.codeMirror.save();
     let code = this.$el.find('textarea').val();
-
     let moduleName = 'repl' + this.moduleId++;
-    let transpiled = this.compiler.transpile(code, moduleName);
-    eval(transpiled);
-    System.import(moduleName);
+
+    this.compiler
+      .transpile(code, moduleName)
+      .then(function transpileSuccess(transpiled) {
+        System.register(moduleName, [], function() { return eval(transpiled); });
+        System.import(moduleName);
+      });
+
+//    let transpiled = this.compiler.transpile(code, moduleName);
+//    eval(transpiled);
+//    System.import(moduleName);
     this.$el.find('.module-name').text(moduleName);
   }
 }
