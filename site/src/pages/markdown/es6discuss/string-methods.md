@@ -9,7 +9,7 @@ code: |
 
     console.log(name.startsWith("John"));
     console.log(name.endsWith("Oliver"));
-    console.log(name.contains("live"));
+    console.log(name.includes("live"));
     console.log("derp ".repeat(3));
 
     console.log(data.find(x => x % 2 === 0));
