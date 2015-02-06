@@ -5,7 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "bit-imports": "~0.0.5",
-    "regenerator": "~0.8.9"
+    "regenerator": "~0.8.9",
+    "6to5-bits": "~0.0.3"
   },
   "devDependencies": {},
   "scripts": {
