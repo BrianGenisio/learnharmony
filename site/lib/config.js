@@ -1,4 +1,4 @@
-var importer = (function() {
+var System = (function() {
 
   var importer = Bitimports.config({
     "transforms": [
@@ -22,4 +22,4 @@ var importer = (function() {
   return importer;
 })();
 
-var require = importer.require;
+var require = System.require;

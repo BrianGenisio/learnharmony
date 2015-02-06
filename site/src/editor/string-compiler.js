@@ -7,7 +7,7 @@ class StringCompiler {
 
 
 function callImporterCompiler(code) {
-    return importer.transform(code)
+    return System.transform(code)
       .then(function transpileSuccess(transpiled) {
         let result =
           `(function() {
