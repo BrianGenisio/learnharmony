@@ -4,9 +4,9 @@ var System = (function() {
     "transforms": [
       {
         handler: ignore,
-        ignore: ["lib/6to5"]
+        ignore: ["node_modules/6to5-bits/dist/index.js"]
       }, {
-        name: "lib/6to5"
+        name: "node_modules/6to5-bits/dist/index.js"
       }
     ]
   });
