@@ -39,9 +39,6 @@ class Editor {
         System.import(moduleName);
       });
 
-//    let transpiled = this.compiler.transpile(code, moduleName);
-//    eval(transpiled);
-//    System.import(moduleName);
     this.$el.find('.module-name').text(moduleName);
   }
 }
