@@ -1,6 +1,6 @@
 # LearnHarmony.org
 
-This is the code for the website [LearnHarmony.org](http://LearnHarmony.org).  It is a static site with a cusom Markdown/FrontMatter build step.  Everything has been written using ES6 modules.  I deploy the site to GitHub Pages using the `./publish site` command, which takes everything in the `site` folder and sends it to the `gh-pages` branch.  
+This is the code for the website [LearnHarmony.org](http://LearnHarmony.org).  It is a static site with a custom Markdown/FrontMatter build step.  Everything has been written using ES6 modules.  I deploy the site to GitHub Pages using the `./publish site` command, which takes everything in the `site` folder and sends it to the `gh-pages` branch.  
 
 # Running
 
