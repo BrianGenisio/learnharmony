@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "bit-imports": "~0.0.5",
+    "bit-imports": "~0.1.0",
     "regenerator": "~0.8.9",
-    "6to5-bits": "~0.0.3"
+    "babel-bits": "~0.0.7"
   },
   "devDependencies": {},
   "scripts": {
