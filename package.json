@@ -8,7 +8,9 @@
     "regenerator": "~0.8.9",
     "babel-bits": "~0.0.7"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel": "~4.6.6"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
