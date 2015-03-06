@@ -5,13 +5,22 @@ next: lessons/destructuring
 nextText: Now, let's learn about variable Destructuring.
 heading: Arrow Functions -- Context
 code: |
+    var ctx = { foo: 'bar' };
+
     // this === window
-    let printThis = () => console.log(this.toString());
+    let printThis = () => {
+      if (this !== ctx) {
+        console.log("Context is not changed");
+      }
+      else {
+        console.log("Context changed", this);
+      }
+    }
 
     printThis();
-    printThis.call({thisIs: 'window'});
-    printThis.apply({thisIsAlso: 'window'});
-    printThis.bind({thisIsStill: 'window'})();
+    printThis.call(ctx);
+    printThis.apply(ctx);
+    printThis.bind(ctx)();
 ---
 
 ### How are Arrow Functions different from regular functions?
