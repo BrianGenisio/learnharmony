@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Unit Tests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Unit Tests">
+
+    <!-- polyfill function.bind - phantomjs does not current have it implemented  -->
+    <script type="text/javascript" src="bind.js"></script>
+
+    <!-- Load up mocha -->
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css"/>
+    <script type="text/javascript" src="../node_modules/mocha/mocha.js"></script>
+
+    <script src="../node_modules/requirejs/require.js"></script>
+    <script src="require-config.js"></script>
+  </head>
+
+  <body>
+    <div id="mocha"></div>
+    <script>
+      require(["test/SpecRunner"]);
+    </script>
+  </body>
+</html>
+
