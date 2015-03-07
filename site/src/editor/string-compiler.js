@@ -1,22 +1,28 @@
 class StringCompiler {
   transpile(code, moduleName) {
-    let traceurCompiler = new traceur.Compiler({
-      moduleName: moduleName,
-      experimental: true,
-      freeVariableChecker: true
-    });
-    
-    let transpiled = traceurCompiler.compile(code);
-
-    let result = 
-`(function() { 
-
-${ transpiled } 
-
-})();`;
-
-    return result;
+    return SystemTranform(code, moduleName);
   }
 }
+
+
+function SystemTranform(code) {
+  return System.transform(code)
+    .then(transpileSuccess, transpileError);
+
+
+  function transpileSuccess(transpiled) {
+    let result =
+      `(function() {
+      ${ transpiled }
+      })();`;
+    return result;
+  }
+
+  function transpileError(err) {
+    console.log(err.message);
+    return err;
+  }
+}
+
 
 export default StringCompiler;

@@ -23,7 +23,7 @@
             .editor { display: none; }
             #console .output { height: 21.5em; }
             #console pre { height: 100%; }
-        </style>        
+        </style>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -73,22 +73,18 @@
         </div>
 
         <div class="container" id="disqus_thread"></div>
-        
+
         <script src="lib/json.pruned.js"></script>
+        <script src="node_modules/babel/browser-polyfill.js"></script>
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="bower_components/traceur/traceur.js"></script>
         <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="bower_components/codemirror/lib/codemirror.js"></script>
         <script src="bower_components/codemirror/mode/javascript/javascript.js"></script>
         <script src="bower_components/lodash/dist/lodash.js"></script>
-        
-        <script>
-            traceur.options.experimental = true;
-        	new traceur.WebPageTranscoder(document.location.href).run();
-            System.baseURL = 'src';
-        </script>
 
-        <script type="module" src="src/app.js"></script>
+        <script src="node_modules/bit-imports/dist/bit-imports.min.js"></script>
+        <script src="lib/config.js"></script>
+        <script>System.import("src/app");</script>
 
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -99,5 +95,5 @@
           ga('create', 'UA-4889510-7', 'auto');
           ga('send', 'pageview');
         </script>
-    </body> 
+    </body>
 </html>

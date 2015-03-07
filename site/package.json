@@ -1,0 +1,18 @@
+{
+  "name": "site",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "bit-imports": "~0.1.0",
+    "babel-bits": "~0.0.7"
+  },
+  "devDependencies": {
+    "babel": "~4.6.6"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
