@@ -82,9 +82,9 @@ define(["dist/bit-loader"], function(Bitloader) {
         };
 
         loader = new Loader(manager);
-        loader.isLoaded         = loaderIsLadedStub;
-        loader.asyncBuildModule = loaderBuildModuleStub;
-        loader.setModule        = loaderSetModuleStub;
+        loader.isLoaded   = loaderIsLadedStub;
+        loader.asyncBuild = loaderBuildModuleStub;
+        loader.setModule  = loaderSetModuleStub;
         return loader.load("yes").then(moduleLoadedStub);
       });
 
@@ -178,9 +178,9 @@ define(["dist/bit-loader"], function(Bitloader) {
       var loader, moduleName, hasModuleStub, setModuleStub, factoryStub, moduleCode;
 
       beforeEach(function() {
-        moduleName = "module1";
-        moduleCode = function rad() {};
-        factoryStub   = sinon.stub().returns(moduleCode);
+        moduleName  = "module1";
+        moduleCode  = function rad() {};
+        factoryStub = sinon.stub().returns(moduleCode);
 
         var manager = new Bitloader();
         hasModuleStub = sinon.spy(manager, "hasModule");
@@ -226,29 +226,46 @@ define(["dist/bit-loader"], function(Bitloader) {
 
 
     describe("When module meta is registered with the `register` interface with dependencies", function() {
-      var loader, moduleName, hasModuleStub, setModuleStub, getModuleStub, factoryStub, fetchStub, moduleCode, deep1Module;
+      var loader, moduleName, hasModuleStub, setModuleStub, getModuleStub, factoryStub, resolveStub, fetchStub, moduleCode, deep1Module;
 
       beforeEach(function() {
-        moduleName    = "module1";
-        moduleCode    = function rad() {};
-        deep1Module   = {"code":{"deep1": "Some value"}};
-        fetchStub     = sinon.stub();
-        factoryStub   = sinon.stub().returns(moduleCode);
+        moduleName  = "module1";
+        moduleCode  = function rad() {};
+        deep1Module = {"code":{"deep1": "Some value"}};
+        fetchStub   = sinon.stub();
+        resolveStub = sinon.stub();
+        factoryStub = sinon.stub().returns(moduleCode);
 
-        fetchStub.withArgs(moduleName).throws(new TypeError("Registered Module must NOT be fetched"));
-        fetchStub.withArgs("js/deep1").returns(deep1Module);
+        fetchStub.withArgs(sinon.match({ name: moduleName })).throws(new TypeError("Registered Module must NOT be fetched"));
+        fetchStub.withArgs(sinon.match({ name: "js/deep1" })).returns(deep1Module);
 
-        var manager = new Bitloader();
-        manager.fetch = fetchStub;
-        getModuleStub = sinon.spy(manager, "getModule");
-        setModuleStub = sinon.spy(manager, "setModule");
-        hasModuleStub = sinon.spy(manager, "hasModule");
+        function fetcherFactory() {
+          return {
+            fetch: fetchStub
+          };
+        }
 
-        loader = manager.providers.loader;
+        function resolverFactory() {
+          return {
+            resolve: resolveStub
+          };
+        }
+
+
+        var bitloader = new Bitloader({}, {
+          fetcher: fetcherFactory,
+          resolver: resolverFactory
+        });
+
+        getModuleStub = sinon.spy(bitloader, "getModule");
+        setModuleStub = sinon.spy(bitloader, "setModule");
+        hasModuleStub = sinon.spy(bitloader, "hasModule");
+
+        loader = bitloader.providers.loader;
         loader.register(moduleName, ["js/deep1"], factoryStub);
       });
 
-      it("then module meta is registered", function() {
+      it("then module meta is pending", function() {
         expect(loader.isPending(moduleName)).to.equal(true);
       });
 
@@ -289,6 +306,10 @@ define(["dist/bit-loader"], function(Bitloader) {
 
         it("then module factory is called with module `deep1`", function() {
           expect(factoryStub.calledWithExactly(deep1Module.code)).to.equal(true);
+        });
+
+        it("then manager `fetch` is called", function() {
+          expect(fetchStub.called).to.equal(true);
         });
       });
 

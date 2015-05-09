@@ -68,8 +68,86 @@ define(["dist/bit-loader"], function(Bitloader) {
             expect(ctx._id).to.equal(new_ctx._id);
           });
         });
+
+      });
+    });
+
+    describe("when creating an id generator with no name", function() {
+      var idGenerator;
+      beforeEach(function() {
+        idGenerator = Registry.idGenerator();
+      });
+
+      it("then id generating is a function", function() {
+        expect(idGenerator).to.be.a('function');
+      });
+
+      describe("and generating one id", function() {
+        var id;
+        beforeEach(function() {
+          id = idGenerator();
+        });
+
+        it("then id is 'generic-0'", function() {
+          expect(id).to.equal("generic-0");
+        });
+      });
+
+      describe("and generating two ids", function() {
+        var id1, id2;
+        beforeEach(function() {
+          id1 = idGenerator();
+          id2 = idGenerator();
+        });
+
+        it("then id1 is 'generic-0'", function() {
+          expect(id1).to.equal("generic-0");
+        });
+
+        it("then id2 is 'generic-1'", function() {
+          expect(id2).to.equal("generic-1");
+        });
+      });
+    });
+
+    describe("when creating an id generator with name 'loader'", function() {
+      var idGenerator;
+      beforeEach(function() {
+        idGenerator = Registry.idGenerator('loader');
+      });
+
+      it("then id generating is a function", function() {
+        expect(idGenerator).to.be.a('function');
+      });
+
+      describe("and generating one id", function() {
+        var id;
+        beforeEach(function() {
+          id = idGenerator();
+        });
+
+        it("then id is 'loader-0'", function() {
+          expect(id).to.equal("loader-0");
+        });
+      });
+
+      describe("and generating two ids", function() {
+        var id1, id2;
+        beforeEach(function() {
+          id1 = idGenerator();
+          id2 = idGenerator();
+        });
+
+        it("then id1 is 'loader-0'", function() {
+          expect(id1).to.equal("loader-0");
+        });
+
+        it("then id2 is 'loader-1'", function() {
+          expect(id2).to.equal("loader-1");
+        });
       });
     });
 
   });
 });
+

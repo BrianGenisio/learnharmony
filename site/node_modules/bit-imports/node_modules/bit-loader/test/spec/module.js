@@ -42,8 +42,8 @@ define(["dist/bit-loader"], function(Bitloader) {
         expect(metaSpy.threw("TypeError")).to.equal(true);
       });
 
-      it("then exception stating that `compile` or `code` must be provided", function() {
-        expect(metaSpy.exceptions[0].message).to.equal("ModuleMeta must provide a `source` string and `compile` interface, or `code`.");
+      it("then exception stating that `source` or `code` must be provided", function() {
+        expect(metaSpy.exceptions[0].message).to.equal("ModuleMeta must provide a `source` string or `code`.");
       });
     });
 
@@ -52,89 +52,30 @@ define(["dist/bit-loader"], function(Bitloader) {
 
       beforeEach(function() {
         metaSpy = sinon.spy(Module.Meta.validate);
-
-        try {
-          metaSpy({source: "some source"});
-        }
-        catch(ex) {
-        }
+        metaSpy({source: "some source"});
       });
 
-      it("then an exception is thrown", function() {
-        expect(metaSpy.threw("TypeError")).to.equal(true);
-      });
-
-      it("then exception stating that `compile` or `code` must be provided", function() {
-        expect(metaSpy.exceptions[0].message).to.equal("ModuleMeta must provide a `source` string and `compile` interface, or `code`.");
+      it("then an exception is not thrown", function() {
+        expect(metaSpy.threw("TypeError")).to.equal(false);
       });
     });
 
-    describe("When creating a ModuleMeta with options with only `compile`", function() {
+
+    describe("When creating a ModuleMeta with a `source` string", function() {
       var metaSpy;
 
       beforeEach(function() {
         metaSpy = sinon.spy(Module.Meta.validate);
 
         try {
-          metaSpy({compile: function() {}});
+          metaSpy({source: "function x(){}"});
         }
         catch(ex) {
         }
       });
 
-      it("then an exception is thrown", function() {
-        expect(metaSpy.threw("TypeError")).to.equal(true);
-      });
-
-      it("then exception stating that `compile` or `code` must be provided", function() {
-        expect(metaSpy.exceptions[0].message).to.equal("ModuleMeta must provide a `source` string and `compile` interface, or `code`.");
-      });
-    });
-
-
-    describe("When creating a ModuleMeta with a `source` property and `compile` a string", function() {
-      var metaSpy;
-
-      beforeEach(function() {
-        metaSpy = sinon.spy(Module.Meta.validate);
-
-        try {
-          metaSpy({source: "function x(){}", compile: "some string"});
-        }
-        catch(ex) {
-        }
-      });
-
-      it("then an exception is thrown", function() {
-        expect(metaSpy.threw("TypeError")).to.equal(true);
-      });
-
-      it("then exception stating that `compile` or `code` must be provided", function() {
-        expect(metaSpy.exceptions[0].message).to.equal("ModuleMeta must provide a `source` string and `compile` interface, or `code`.");
-      });
-    });
-
-
-    describe("When creating a ModuleMeta with a `source` property and `compile` interface", function() {
-      var moduleMeta, metaSpy;
-
-      beforeEach(function() {
-        moduleMeta = {source: "function x(){}", compile: function() {}};
-        metaSpy = sinon.spy(Module.Meta.validate);
-
-        try {
-          metaSpy(moduleMeta);
-        }
-        catch(ex) {
-        }
-      });
-
-      it("then ModuleMeta `source` is `function x(){}`", function() {
-        expect(moduleMeta.source).to.equal("function x(){}");
-      });
-
-      it("then ModuleMeta `compile` is a function", function() {
-        expect(moduleMeta.compile).to.be.a("function");
+      it("then an exception is not thrown", function() {
+        expect(metaSpy.threw("TypeError")).to.equal(false);
       });
     });
 
@@ -144,13 +85,17 @@ define(["dist/bit-loader"], function(Bitloader) {
 
       beforeEach(function() {
         moduleMeta = {code: "some random code"};
-        metaSpy = sinon.spy(Module.Meta);
+        metaSpy = sinon.spy(Module.Meta.validate);
 
         try {
           metaSpy(moduleMeta);
         }
         catch(ex) {
         }
+      });
+
+      it("then an exception is not thrown", function() {
+        expect(metaSpy.threw("TypeError")).to.equal(false);
       });
 
       it("then ModuleMeta `code` is `some random code`", function() {

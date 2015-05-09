@@ -1,7 +1,5 @@
 .jshintrc
 .travis.yml
-buildinfo
 Gruntfile.js
 lib
-src
 tests

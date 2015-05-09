@@ -4,11 +4,6 @@
   var StatefulItems = require('./stateful-items');
   var storage = {};
 
-  var registryId = 0;
-  function getRegistryId() {
-    return 'generic-' + registryId++;
-  }
-
 
   /**
    * Module registry
@@ -85,5 +80,27 @@
   };
 
 
+  /**
+   * Creates a named id generator you can use for prefixing generated ids. The
+   * idea is that you can generate ids you prefix in order to group generated
+   * ids.
+   *
+   * @param {string} name - Name of the id generator. Provide you to
+   *   customize the ids generated. Defaults to 'generic'.
+   * @parem {number} seed - Seed number to start id generation from.
+   *
+   * @returns {function} That when called creates and returns a new
+   *   unique id.
+   */
+  Registry.idGenerator = function(name, seed) {
+    name = (name || 'generic') + '-';
+    var id = seed || 0;
+    return function getId() {
+      return name + id++;
+    };
+  };
+
+
+  var getRegistryId = Registry.idGenerator();
   module.exports = Registry;
 })();

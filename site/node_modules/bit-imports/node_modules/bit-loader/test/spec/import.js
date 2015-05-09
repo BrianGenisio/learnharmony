@@ -72,7 +72,7 @@ define(["dist/bit-loader"], function(Bitloader) {
       });
 
       it("them module importer callback is called with modules `no` and `yes`", function() {
-        expect(moduleImportedStub.calledWithExactly(no, yes)).to.equal(true);
+        expect(moduleImportedStub.calledWithExactly([no, yes])).to.equal(true);
       });
 
       it("then `manager.load` is not called", function() {
@@ -159,7 +159,7 @@ define(["dist/bit-loader"], function(Bitloader) {
         });
 
         it("them module importer callback is called with modules `no` and `yes`", function() {
-          expect(moduleImportedStub.calledWithExactly(no, yes)).to.equal(true);
+          expect(moduleImportedStub.calledWithExactly([no, yes])).to.equal(true);
         });
 
         it("then `manager.hasModuleCode` is called twice - once for each module", function() {
@@ -199,7 +199,7 @@ define(["dist/bit-loader"], function(Bitloader) {
         });
 
         it("then module importer callback with called with modules `overriden` and `yes`", function() {
-          expect(moduleImportedStub.calledWithExactly(overriden, yes)).to.equal(true);
+          expect(moduleImportedStub.calledWithExactly([overriden, yes])).to.equal(true);
         });
 
         it("then `manager.load` is not called", function() {
