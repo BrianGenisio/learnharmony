@@ -1,12 +1,29 @@
 var gulp = require("gulp");
+var webserver = require("gulp-webserver");
+var mochaPhantomJS = require("gulp-mocha-phantomjs");
+var browserify = require("browserify");
+var source = require("vinyl-source-stream");
+var jshint = require("gulp-jshint");
+var stylish = require("jshint-stylish");
 
-var mochaPhantomJS = require('gulp-mocha-phantomjs');
+
 gulp.task("test", ["build-debug"], function() {
   return gulp.src("test/SpecRunner.html")
-    .pipe(mochaPhantomJS());
+    .pipe(mochaPhantomJS({
+        reporter: 'tap',
+        mocha: {
+            grep: 'pattern'
+        },
+        phantomjs: {
+            viewportSize: {
+                width: 1024,
+                height: 768
+            }
+        }
+    }));
 });
 
-var webserver = require("gulp-webserver");
+
 gulp.task("serve", ["build-release", "build-debug"], function() {
   gulp.src(".")
     .pipe(webserver({
@@ -17,39 +34,45 @@ gulp.task("serve", ["build-release", "build-debug"], function() {
   gulp.watch(["src/**/*.js", "test/**/*.js"], ["build"]);
 });
 
-var browserify = require("browserify");
-var source = require("vinyl-source-stream");
+
 gulp.task("build-release", ["jshint"], function() {
   var bundler = new browserify({
     debug: true, // Add source maps to output to allow minifyify convert them to minified source maps
     standalone: "amdresolver",
-    detectGlobals: false
+    detectGlobals: false,
   });
 
-  bundler.add("./src/resolver.js");
+  bundler
+    .ignore("process")
+    .add("./src/resolver.js");
 
-  bundler.plugin("minifyify", { map: "dist/amd-resolver.min.js.map", output: "dist/amd-resolver.min.js.map" })
+  bundler.plugin("minifyify", {
+      map: "dist/amd-resolver.min.js.map",
+      output: "dist/amd-resolver.min.js.map"
+    })
     .bundle()
     .pipe(source("amd-resolver.min.js"))
     .pipe(gulp.dest("dist"));
 });
 
-gulp.task("build-debug-watch", function() {
-  gulp.watch("src/**/*.js", ["build-debug"]);
-});
 
 gulp.task("build-debug", ["jshint"], function() {
   return browserify("./src/resolver.js", {
       standalone: "amdresolver",
       detectGlobals: false
     })
+    .ignore("process")
     .bundle()
     .pipe(source("amd-resolver.js"))
     .pipe(gulp.dest("dist"));
 });
 
-var jshint = require("gulp-jshint");
-var stylish = require("jshint-stylish");
+
+gulp.task("build-debug-watch", function() {
+  gulp.watch("src/**/*.js", ["build-debug"]);
+});
+
+
 gulp.task("jshint", function() {
   return gulp.src(["src/**/*.js", "test/**/*.js", "gulpfile.js"])
     .pipe(jshint())

@@ -1,0 +1,42 @@
+body {
+  padding-top: 52px;
+  padding-bottom: 28px;
+  background-color: #eee;
+
+  .navbar-inverse {
+    color: white;
+    background-color: #3B3B3B;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    text-align: right;
+    width: 100%;
+    padding: 5px;
+  }
+
+  .container > .navbar-brand {
+    padding: 0px 15px;
+  }
+
+  .container > .navbar-brand > .logo {
+    height: 50px;
+  }
+
+  .navbar .navbar-icon {
+    font-size: 2em;
+    padding: 0 8px;
+    padding-top: 12px;
+  }
+
+  .jumbotron {
+    background-color: #fff;
+  }
+
+  .jumbotron:nth-child(2),
+  .jumbotron:nth-child(2) * {
+    background-color: #00B37C;
+    color: white;
+  }
+}

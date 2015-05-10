@@ -394,7 +394,7 @@ define(["dist/amd-resolver"], function(Resolver) {
         });
 
         it("then shim is undefined", function() {
-          expect(moduleMeta.shim).to.undefined();
+          expect(moduleMeta.shim).to.equal(undefined);
         });
       });
     });
@@ -559,6 +559,16 @@ define(["dist/amd-resolver"], function(Resolver) {
         });
       });
 
+      describe("and resolving name `../file` and baseUrl with search parameters", function() {
+        var moduleMeta;
+        beforeEach(function() {
+          moduleMeta = resolver.resolve("../file", "base/path/index.jsp?test=args");
+        });
+
+        it("then `url.href` is base/path/file.js?" + bust, function() {
+          expect(moduleMeta.url.href).to.equal("base/file.js?" + bust);
+        });
+      });
     });
 
   });

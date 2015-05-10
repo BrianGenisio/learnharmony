@@ -27,7 +27,7 @@ Require.prototype.require = function(name, ready, options) {
     return loader.getModuleCode(name);
   }
   else {
-    return loader.import(name, options).done(ready || loader.Utils.noop);
+    return loader.import(name, options).then(ready || loader.Utils.noop, loader.Utils.reportError);
   }
 };
 

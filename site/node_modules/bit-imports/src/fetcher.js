@@ -23,7 +23,7 @@ Fetcher.prototype.fetch = function(moduleMeta) {
     return {source: source};
   }
 
-  return fileReader(moduleMeta.path).then(fileRead, loader.Utils.forwardError);
+  return fileReader(moduleMeta.path).then(fileRead, loader.Utils.reportError);
 };
 
 

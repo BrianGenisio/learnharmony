@@ -203,7 +203,7 @@ define(["dist/bit-loader"], function(Bitloader) {
         });
 
         it("then defaults.date is undefined", function() {
-          expect(defaults.date).to.be.undefined();
+          expect(defaults.date).to.equal(undefined);
         });
 
         it("then result.one is and Array", function() {

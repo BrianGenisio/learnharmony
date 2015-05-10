@@ -1,10 +1,10 @@
 define(["dist/amd-resolver"], function(Resolver) {
-  var URL = Resolver.URL;
+  var Url = Resolver.Url;
 
   describe("URL Test Suite", function() {
 
     describe("When creating a URL with ''", function() {
-      var url = new URL('');
+      var url = new Url('');
 
       it("then `hash` is an empty string", function() {
         expect(url.hash).to.equal('');
@@ -52,7 +52,7 @@ define(["dist/amd-resolver"], function(Resolver) {
     });
 
     describe("When creating a URL with `https://developer.mozilla.org`", function() {
-      var url = new URL("https://developer.mozilla.org");
+      var url = new Url("https://developer.mozilla.org");
 
       it("then `hash` is an empty string", function() {
         expect(url.hash).to.equal('');
@@ -101,7 +101,7 @@ define(["dist/amd-resolver"], function(Resolver) {
 
 
     describe("When creating a URL with `/` and base `https://developer.mozilla.org`", function() {
-      var url = new URL("/", "https://developer.mozilla.org");
+      var url = new Url("/", "https://developer.mozilla.org");
 
       it("then `hash` is an empty string", function() {
         expect(url.hash).to.equal('');
@@ -150,7 +150,7 @@ define(["dist/amd-resolver"], function(Resolver) {
 
 
     describe("When creating a URL with `en-US/docs` and base `https://developer.mozilla.org`", function() {
-      var url = new URL("en-US/docs", "https://developer.mozilla.org");
+      var url = new Url("en-US/docs", "https://developer.mozilla.org");
 
       it("then `hash` is an empty string", function() {
         expect(url.hash).to.equal('');
@@ -199,7 +199,7 @@ define(["dist/amd-resolver"], function(Resolver) {
 
 
     describe("When creating a URL with `/en-US/docs` and base `https://developer.mozilla.org`", function() {
-      var url = new URL("/en-US/docs", "https://developer.mozilla.org");
+      var url = new Url("/en-US/docs", "https://developer.mozilla.org");
 
       it("then `hash` is an empty string", function() {
         expect(url.hash).to.equal('');
@@ -245,21 +245,21 @@ define(["dist/amd-resolver"], function(Resolver) {
         expect(url.username).to.equal('');
       });
     });
-  });
 
+    describe("When calling resolve", function() {
+      describe("with `../base/path` and baseUrl `http://localhost/some/path/`", function() {
+        it("then resolve returns `http://localhost/some/base/path`", function() {
+          expect(Url.parser.resolve("http://localhost/some/path/", "../base/path")).to.equal("http://localhost/some/base/path");
+        });
+      });
 
-  describe("When calling resolve", function() {
-    describe("with `../base/path` and baseUrl `http://localhost/some/path/`", function() {
-      it("then resolve returns `http://localhost/some/base/path`", function() {
-        expect(URL.parser.resolve("http://localhost/some/path/", "../base/path")).to.equal("http://localhost/some/base/path");
+      describe("with `../base/path` and baseUrl `http://localhost/some/path`", function() {
+        it("then resolve returns `http://localhost/base/path`", function() {
+          expect(Url.parser.resolve("http://localhost/some/path", "../base/path")).to.equal("http://localhost/base/path");
+        });
       });
     });
 
-    describe("with `../base/path` and baseUrl `http://localhost/some/path`", function() {
-      it("then resolve returns `http://localhost/base/path`", function() {
-        expect(URL.parser.resolve("http://localhost/some/path", "../base/path")).to.equal("http://localhost/base/path");
-      });
-    });
   });
 
 });

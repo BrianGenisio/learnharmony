@@ -1,4 +1,4 @@
-define(['dist/bit-loader'], function(Bitloader) {
+define(["dist/bit-loader"], function(Bitloader) {
 
   describe("Ignore Test Suite", function() {
 
@@ -25,8 +25,11 @@ define(['dist/bit-loader'], function(Bitloader) {
         describe("and running pipeline on `test.js`", function() {
           var moduleMeta;
           beforeEach(function() {
-            moduleMeta = {"name": "test.js", "source": ""};
-            return bitloader.providers.loader._pipelineModuleMeta(moduleMeta);
+            moduleMeta = new Bitloader.Module.Meta({
+              "name": "test.js",
+              "source": ""
+            });
+            return bitloader.providers.loader.runPipeline(moduleMeta);
           });
 
           it("then `transform` is executed", function() {
@@ -56,8 +59,11 @@ define(['dist/bit-loader'], function(Bitloader) {
         describe("and running pipeline on `test1.js`", function() {
           var moduleMeta;
           beforeEach(function() {
-            moduleMeta = {"name": "test1.js", "source": ""};
-            return bitloader.providers.loader._pipelineModuleMeta(moduleMeta);
+            moduleMeta = new Bitloader.Module.Meta({
+              "name": "test1.js",
+              "source": ""
+            });
+            return bitloader.providers.loader.runPipeline(moduleMeta);
           });
 
           it("then `transform` is executed", function() {
@@ -72,8 +78,11 @@ define(['dist/bit-loader'], function(Bitloader) {
         describe("and running pipeline on `test2.js`", function() {
           var moduleMeta;
           beforeEach(function() {
-            moduleMeta = {"name": "test2.js", "source": ""};
-            return bitloader.providers.loader._pipelineModuleMeta(moduleMeta);
+            moduleMeta = new Bitloader.Module.Meta({
+              "name": "test2.js",
+              "source": ""
+            });
+            return bitloader.providers.loader.runPipeline(moduleMeta);
           });
 
           it("then `transform` is executed", function() {
@@ -90,15 +99,18 @@ define(['dist/bit-loader'], function(Bitloader) {
       describe("and defining one generic ignore rule with match `test.js`", function() {
         beforeEach(function() {
           bitloader.ignore({
-            match: 'test.js'
+            match: "test.js"
           });
         });
 
         describe("and running pipeline on `test.js`", function() {
           var moduleMeta;
           beforeEach(function() {
-            moduleMeta = {"name": "test.js", "source": ""};
-            return bitloader.providers.loader._pipelineModuleMeta(moduleMeta);
+            moduleMeta = new Bitloader.Module.Meta({
+              "name": "test.js",
+              "source": ""
+            });
+            return bitloader.providers.loader.runPipeline(moduleMeta);
           });
 
           it("then `transform` is not executed", function() {
@@ -113,8 +125,11 @@ define(['dist/bit-loader'], function(Bitloader) {
         describe("and running pipeline on `doesrun.js`", function() {
           var moduleMeta;
           beforeEach(function() {
-            moduleMeta = {"name": "doesrun.js", "source": ""};
-            return bitloader.providers.loader._pipelineModuleMeta(moduleMeta);
+            moduleMeta = new Bitloader.Module.Meta({
+              "name": "doesrun.js",
+              "source": ""
+            });
+            return bitloader.providers.loader.runPipeline(moduleMeta);
           });
 
           it("then `transform` is executed", function() {

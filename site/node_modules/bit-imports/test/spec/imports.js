@@ -14,7 +14,7 @@ describe("Imports Test Suite", function() {
       return importer.transform(source)
         .then(function(_result){
           result = _result;
-        }, Importer.Utils.printError);
+        }, Importer.Utils.reportError);
     });
 
     it("then transform generates a string as output", function() {

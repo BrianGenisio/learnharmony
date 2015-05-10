@@ -13,7 +13,7 @@
         "no-unused-vars": 1,
         "semi": 1,
         "global-strict": 0,
-        "wrap-iife": [2, "outside"],
+        "wrap-iife": [2, "inside"],
         "quotes": [2, "double"],
         "key-spacing": 0,
         "no-trailing-spaces": 0,

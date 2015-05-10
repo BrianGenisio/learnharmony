@@ -1,106 +1,99 @@
+var acorn = require('acorn');
+var walk  = require('acorn-walk');
+
+
+var TokenTypes = {
+  _define         : 'define',
+  _require        : 'require',
+  Identifier      : 'Identifier',
+  Literal         : 'Literal',
+  ArrayExpression : 'ArrayExpression'
+};
+
+
+function isArrayExpession(node) {
+  return node && TokenTypes.ArrayExpression === node.type;
+}
+
+
+function isName(node, name) {
+  return TokenTypes.Identifier === node.type && name === node.name;
+}
+
+
+function getDependencyString(nodes) {
+  if (nodes.length === 1 && TokenTypes.Literal === nodes[0].type) {
+    return nodes[0].value;
+  }
+}
+
+
+function getDependencyArray(nodes) {
+  var elements, i, length;
+
+  // Handle define([], function() {}) format
+  if (isArrayExpession(nodes[0])) {
+    elements = nodes[0].elements;
+  }
+  // Handle define("modulename", [], function() {}) format
+  else if (isArrayExpession(nodes[1])) {
+    elements = nodes[1].elements;
+  }
+
+  if (elements) {
+    for (i = 0, length = elements.length; i < length; i++) {
+      elements[i] = elements[i].value;
+    }
+  }
+
+  return elements;
+}
+
+
 /**
- * Module to extract dependencies from define and require statments
+ * Method to pull dependencies from a JavaScript source string.
+ *
+ * @param {string} source - Source to parse
+ * @param {object} options - Options passed to acorn
+ *
+ * @returns {object:{array: dependencies}} - Object with dependencies
  */
-(function() {
-  'use strict';
+function PullDeps(source, options) {
+  return PullDeps.walk(acorn.parse(source, options));
+}
 
 
-  var TokenTypes = {
-    _define         : 'define',
-    _require        : 'require',
-    Identifier      : 'Identifier',
-    Literal         : 'Literal',
-    ArrayExpression : 'ArrayExpression'
-  };
+/**
+ * Method to pull dependencies from an AST.
+ *
+ * @param {object} ast - AST to traverse in order to find all dependencies.
+ *
+ * @returns {object:{array: dependencies}} - Object with dependencies
+ */
+PullDeps.walk = function(ast) {
+  var result = {dependencies: []};
 
-
-  var acorn = require('acorn'),
-      walk  = require('acorn/util/walk');
-
-  /**
-   * Method to pull dependencies from a JavaScript source string.
-   *
-   * @param {string} source - Source to parse
-   * @param {object} options - Options passed to acorn
-   *
-   * @returns {object:{array: dependencies}} - Object with dependencies
-   */
-  function PullDeps(source, options) {
-    return PullDeps.walk(acorn.parse(source, options));
-  }
-
-
-  /**
-   * Method to pull dependencies from an AST.
-   *
-   * @param {object} ast - AST to traverse in order to find all dependencies.
-   *
-   * @returns {object:{array: dependencies}} - Object with dependencies
-   */
-  PullDeps.walk = function(ast) {
-    var result = {dependencies: []};
-
-    function callExpression(node) {
-      if (isName(node.callee, TokenTypes._require)) {
-        var dependency = getDependencyString(node.arguments);
-        if (dependency) {
-          result.dependencies.push(dependency);
-        }
-      }
-      else if (isName(node.callee, TokenTypes._define)) {
-        var dependencies = getDependencyArray(node.arguments);
-        if (dependencies && dependencies.length) {
-          result.dependencies = result.dependencies.concat(dependencies);
-        }
+  function callExpression(node) {
+    if (isName(node.callee, TokenTypes._require)) {
+      var dependency = getDependencyString(node.arguments);
+      if (dependency) {
+        result.dependencies.push(dependency);
       }
     }
-
-    walk.simple(ast, {
-      'CallExpression': callExpression
-    });
-
-    return result;
-  };
-
-
-  function isName(node, name) {
-    return TokenTypes.Identifier === node.type && name === node.name;
-  }
-
-
-  function getDependencyString(nodes) {
-    if (nodes.length === 1 && TokenTypes.Literal === nodes[0].type) {
-      return nodes[0].value;
-    }
-  }
-
-
-  function getDependencyArray(nodes) {
-    var elements, i, length;
-
-    // Handle define([], function() {}) format
-    if (isArrayExpession(nodes[0])) {
-      elements = nodes[0].elements;
-    }
-    // Handle define("modulename", [], function() {}) format
-    else if (isArrayExpession(nodes[1])) {
-      elements = nodes[1].elements;
-    }
-
-    if (elements) {
-      for (i = 0, length = elements.length; i < length; i++) {
-        elements[i] = elements[i].value;
+    else if (isName(node.callee, TokenTypes._define)) {
+      var dependencies = getDependencyArray(node.arguments);
+      if (dependencies && dependencies.length) {
+        result.dependencies = result.dependencies.concat(dependencies);
       }
     }
-
-    return elements;
   }
 
+  walk.simple(ast, {
+    'CallExpression': callExpression
+  });
 
-  function isArrayExpession(node) {
-    return node && TokenTypes.ArrayExpression === node.type;
-  }
+  return result;
+};
 
 
-  module.exports = PullDeps;
-})();
+module.exports = PullDeps;
