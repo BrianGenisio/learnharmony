@@ -34,6 +34,19 @@ var myFunction = (arg) => arg.toUpperCase();
 ### Where will you use Arrow Functions?
 Arrow Functions are particularly useful when passing anonymous functions into other functions.  For instance, the syntax for filtering and mapping values becomes much more terse.
 
+#### a note about object literals
+
+```
+var f = (a, b) => {"a": a, "b": b};
+f(1,2);
+```
+
+Gives an error. You must enclose the object literal with parenthesis.
+```
+var f = (a, b) => ({"a": a, "b": b});
+f(1,2);
+```
+
 ### Give it a try!
 
 
