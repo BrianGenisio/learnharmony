@@ -41,6 +41,10 @@ function processContent(routes) {
 
 class App extends Component {
   render() {
+    const route = this.props.route.path;
+    const actualRoute = route === '/' ? 'home' : route;
+    const contentPage = content.find(page => page.route === actualRoute);
+
     const menuItems = processContent(content)
       .filter(page => page.navGroup === ".lessons")
       .map(page => {
@@ -50,12 +54,12 @@ class App extends Component {
     const TopNav = <Navbar inverse fixedTop>
       <Navbar.Header>
         <Navbar.Brand>
-          <a href="#">Learn Harmony (ES2015) Now!</a>
+          <a href="#/">Learn Harmony (ES2015) Now!</a>
         </Navbar.Brand>
       </Navbar.Header>
 
       <Nav>
-        <NavItem href="#">Home</NavItem>
+        <NavItem href="#/">Home</NavItem>
         <NavDropdown title="Lessons" id="basic-nav-dropdown">
           {menuItems}
         </NavDropdown>
@@ -68,12 +72,12 @@ class App extends Component {
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
-              Next Text
+              {contentPage.nextText}
             </Navbar.Brand>
           </Navbar.Header>
 
           <Nav pullRight={true}>
-            <NavItem href="#nextItem">
+            <NavItem href={'#' + contentPage.next}>
               <span style={{marginLeft: "-4em"}}>Next</span> &gt;&gt;
             </NavItem>
           </Nav>
@@ -85,7 +89,7 @@ class App extends Component {
       <div>
         {TopNav}
         <Grid style={styles.contentRenderer}>
-            <ContentRenderer />
+            <ContentRenderer content={contentPage} />
             {BottomNav}
         </Grid>
         

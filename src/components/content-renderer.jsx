@@ -6,16 +6,20 @@ import Editor from './editor';
 
 class ContentRenderer extends Component {
     render() {
+        const {content} = this.props;
+
         return <Grid>
             <Row>
                 <Col md={12}>
-                    <h2>HEADING</h2>
+                    <h2>{content.heading}</h2>
                 </Col>
             </Row>
 
             <Row>
                 <Col md={12}>
-                    intro
+                    <div dangerouslySetInnerHTML={
+                        {__html: content.intro}
+                    }></div>
                 </Col>
             </Row>
 
