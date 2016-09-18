@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "codemirror": "^5.18.2",
     "jquery": "^3.1.0",
     "lodash": "^4.15.0",
     "react": "^15.3.1",

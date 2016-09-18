@@ -25,7 +25,7 @@ class ContentRenderer extends Component {
 
             <Row>
                 <Col md={6}>
-                    <Editor />
+                    <Editor code={content.code} />
                 </Col>
 
                 <Col md={6}>
