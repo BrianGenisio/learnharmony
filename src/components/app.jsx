@@ -1,6 +1,8 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import {Navbar, Nav, NavItem, NavDropdown, MenuItem, Grid, Row, Col} from 'react-bootstrap';
 
+import content from '../content.json';
 import ContentRenderer from './content-renderer';
 
 const styles = {
@@ -9,8 +11,42 @@ const styles = {
   }
 };
 
+function orderPages(pages) {
+  let result = [];
+  let current = _.find(pages, page => page.first);
+
+  while(current) {
+    _.remove(pages, current);
+    result.push(current);
+    let nextName = current.next;
+
+    current = nextName ? _.find(pages, page => page.route === nextName) : null;
+    if(!current) current = pages.pop();
+  }
+
+  result.push(...pages);
+
+  return result;
+}
+
+function processContent(routes) {
+  return _(routes)
+    .filter(route => !!route.navGroup)
+    .groupBy(route => route.navGroup)
+    .values()
+    .map(orderPages)
+    .flatten()
+    .value();
+}
+
 class App extends Component {
   render() {
+    const menuItems = processContent(content)
+      .filter(page => page.navGroup === ".lessons")
+      .map(page => {
+        return <MenuItem href={`#${page.route}`} key={page.route}>{page.title}</MenuItem>
+      });
+
     const TopNav = <Navbar inverse fixedTop>
       <Navbar.Header>
         <Navbar.Brand>
@@ -21,7 +57,7 @@ class App extends Component {
       <Nav>
         <NavItem href="#">Home</NavItem>
         <NavDropdown title="Lessons" id="basic-nav-dropdown">
-          <MenuItem href="#somelesson">Some Lesson</MenuItem>
+          {menuItems}
         </NavDropdown>
         <NavItem href="#about">About</NavItem>
       </Nav>

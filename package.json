@@ -3,20 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "front-matter": "^2.1.0",
+    "glob": "^7.0.6",
+    "highlight.js": "^9.6.0",
+    "marked": "^0.3.6",
     "react-scripts": "0.4.1"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
     "jquery": "^3.1.0",
+    "lodash": "^4.15.0",
     "react": "^15.3.1",
     "react-bootstrap": "^0.30.3",
     "react-dom": "^15.3.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run content && react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "content": "node tasks/process-content.js"
   },
   "eslintConfig": {
     "extends": "./node_modules/react-scripts/config/eslint.js"
