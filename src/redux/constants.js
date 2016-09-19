@@ -1,0 +1,6 @@
+export const action = {
+    UPDATE_CODE: "UPDATE_CODE",
+    EXECUTE_CODE: "EXECUTE_CODE",
+    CONSOLE_LOG: "CONSOLE_LOG",
+    CONSOLE_CLEAR: "CONSOLE_CLEAR",
+};
