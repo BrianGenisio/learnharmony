@@ -1,8 +1,8 @@
-import _ from 'lodash';
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+
 import {Navbar, Nav, NavItem, NavDropdown, MenuItem, Grid, Row, Col} from 'react-bootstrap';
 
-import content from '../content.json';
 import ContentRenderer from './content-renderer';
 
 const styles = {
@@ -11,45 +11,13 @@ const styles = {
   }
 };
 
-function orderPages(pages) {
-  let result = [];
-  let current = _.find(pages, page => page.first);
-
-  while(current) {
-    _.remove(pages, current);
-    result.push(current);
-    let nextName = current.next;
-
-    current = nextName ? _.find(pages, page => page.route === nextName) : null;
-    if(!current) current = pages.pop();
-  }
-
-  result.push(...pages);
-
-  return result;
-}
-
-function processContent(routes) {
-  return _(routes)
-    .filter(route => !!route.navGroup)
-    .groupBy(route => route.navGroup)
-    .values()
-    .map(orderPages)
-    .flatten()
-    .value();
-}
-
 class App extends Component {
   render() {
-    const route = this.props.route.path;
-    const actualRoute = route === '/' ? 'home' : route;
-    const contentPage = content.find(page => page.route === actualRoute);
+    const {contentPage, contentOptions} = this.props;
 
-    const menuItems = processContent(content)
-      .filter(page => page.navGroup === ".lessons")
-      .map(page => {
-        return <MenuItem href={`#${page.route}`} key={page.route}>{page.title}</MenuItem>
-      });
+    const menuItems = contentOptions.map(page => {
+      return <MenuItem href={`#${page.route}`} key={page.route}>{page.title}</MenuItem>
+    });
 
     const TopNav = <Navbar inverse fixedTop>
       <Navbar.Header>
@@ -98,4 +66,11 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = ({content, contentOptions}, {route}) => {    
+    const actualRoute = route.path === '/' ? 'home' : route.path;
+    const contentPage = content.find(page => page.route === actualRoute);
+
+    return {contentPage, contentOptions};
+};
+
+export default connect(mapStateToProps)(App);
