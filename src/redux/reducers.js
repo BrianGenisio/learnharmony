@@ -2,6 +2,11 @@ import {action} from "./constants";
 import allContent from '../content.json';
 import {generateContentNavOptions} from '../helpers/content';
 
+function contentForRoute(route) {
+    const actualRoute = route === '/' ? 'home' : route;
+    return allContent.find(page => page.route === actualRoute);
+}
+
 function content(state=[]) {
     return allContent;
 }
@@ -12,10 +17,24 @@ function contentOptions(state=[]) {
       .map(page => ({route: page.route, title: page.title}));
 }
 
-function code(state="", {type, value}) {
+function page(state={}, {type, route}) {
+    switch(type) {
+        case action.CHANGE_ROUTE:
+            return contentForRoute(route);
+
+        default:
+            return state;
+    }
+}
+
+function code(state="", {type, code, route}) {
     switch (type) {
+        case action.CHANGE_ROUTE:
+            const content = contentForRoute(route);
+            return (content && content.code) || code;
+
         case action.UPDATE_CODE:
-            return value;
+            return code;
 
         default:
             return state;
@@ -38,6 +57,7 @@ function consoleLog(state=[], {type, text}) {
 export default {
     content,
     contentOptions,
+    page,
     code,
     consoleLog,
 };

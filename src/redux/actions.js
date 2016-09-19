@@ -1,5 +1,9 @@
 import {action} from './constants.js';
 
+export function changeRoute(route) {
+    return {type: action.CHANGE_ROUTE, route};
+}
+
 export function updateCode(code) {
     return {type: action.UPDATE_CODE, code};
 };

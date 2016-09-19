@@ -66,11 +66,8 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({content, contentOptions}, {route}) => {    
-    const actualRoute = route.path === '/' ? 'home' : route.path;
-    const contentPage = content.find(page => page.route === actualRoute);
-
-    return {contentPage, contentOptions};
+const mapStateToProps = ({page, contentOptions}, {route}) => {    
+    return {contentPage: page, contentOptions};
 };
 
 export default connect(mapStateToProps)(App);
