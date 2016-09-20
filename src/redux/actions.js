@@ -20,3 +20,11 @@ export function executeCode(code) {
             .then(() => dispatch({type: action.EXECUTE_CODE_COMPLETE}));
     };
 };
+
+export function consoleLog(line) {
+    return {type: action.CONSOLE_LOG, line};
+}
+
+export function consoleClear() {
+    return {type: action.CONSOLE_CLEAR};
+}
