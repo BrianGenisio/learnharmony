@@ -37,7 +37,7 @@ class Editor extends Component {
     }
 
     render() {
-        const {code, onExecuteCode} = this.props;
+        const {code, moduleName, onExecuteCode} = this.props;
         
         if(this.codeMirror) {
             this.updateCodeMirror();
@@ -48,9 +48,9 @@ class Editor extends Component {
                 <FormControl componentClass="textarea" rows="6" id="codeInput" />
             </FormGroup>
             <FormGroup>
-                <Button block onClick={() => onExecuteCode(code)}>Run!</Button>
+                <Button block onClick={() => onExecuteCode(code, moduleName)}>Run!</Button>
             </FormGroup>
-            <div>Module Name: <span className="module-name"></span></div>
+            <div>Module Name: {moduleName}</div>
         </div>;
     }
 }
@@ -58,8 +58,11 @@ class Editor extends Component {
 function mapDispatchToProps(dispatch) {
     return {
         onUpdateCode: code => dispatch(updateCode(code)),
-        onExecuteCode: code => dispatch(executeCode(code))
+        onExecuteCode: (code, moduleName) => dispatch(executeCode(code, moduleName))
     };
 }
 
-export default connect(({code}) => ({code}), mapDispatchToProps)(Editor);
+export default connect(
+    ({code, moduleName}) => ({code, moduleName}), 
+    mapDispatchToProps
+)(Editor);

@@ -10,11 +10,21 @@ export function updateCode(code) {
     return {type: action.UPDATE_CODE, code};
 };
 
-export function executeCode(code) {
-    return dispatch => {
-        dispatch({type: action.EXECUTE_CODE, code});
+function nextModule(currentModule) {
+    const PREFIX = 'repl';
+    const nextId = currentModule ? 
+        parseInt(currentModule.replace(PREFIX, ''), 10) + 1:
+        0;
+    
+    return `${PREFIX}${nextId}`;
+}
 
-        const moduleName = "ModuleXYZ"; //TBD
+export function executeCode(code, currentModule) {
+    return dispatch => {
+        const moduleName = nextModule(currentModule);
+
+        dispatch({type: action.EXECUTE_CODE, code, moduleName});
+
         compile(code)
             .then(transpiled => execute(code, moduleName))
             .then(() => dispatch({type: action.EXECUTE_CODE_COMPLETE}));

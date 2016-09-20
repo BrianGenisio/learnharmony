@@ -5,7 +5,6 @@ const ev = 'ev', al = 'al';
 const evil = window[ev+al];
 
 function execute(code, moduleName) {
-
     System.register(moduleName, [], function() { return evil(code); });
     return System.import(moduleName);
 }
