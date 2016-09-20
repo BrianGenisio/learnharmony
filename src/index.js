@@ -10,12 +10,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'highlight.js/styles/default.css';
 import 'codemirror/lib/codemirror.css';
 
+import {hijackConsole} from './helpers/hijack-console';
 import App from './components/app';
 import content from './content';
 import createStore from './redux/store';
 import {changeRoute} from './redux/actions'
 
 const store = createStore();
+
+hijackConsole(line => {}, () => alert('CLEAR'));
 
 function onRouteChange(route) {
   store.dispatch(changeRoute(route));
