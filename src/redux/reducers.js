@@ -41,13 +41,16 @@ function code(state="", {type, code, route}) {
     }
 }
 
-function consoleLog(state=[], {type, text}) {
+function consoleLog(state=[], {type, line}) {
     switch (type) {
         case action.CONSOLE_LOG:
             return [
                 ...state,
-                text
+                line
             ];
+
+        case action.CONSOLE_CLEAR:
+            return [];
 
         default:
             return state;

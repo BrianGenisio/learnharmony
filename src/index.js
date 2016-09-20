@@ -14,11 +14,14 @@ import {hijackConsole} from './helpers/hijack-console';
 import App from './components/app';
 import content from './content';
 import createStore from './redux/store';
-import {changeRoute} from './redux/actions'
+import {changeRoute, consoleLog, consoleClear} from './redux/actions'
 
 const store = createStore();
 
-hijackConsole(line => {}, () => alert('CLEAR'));
+hijackConsole(
+  line => store.dispatch(consoleLog(line)), 
+  () => store.dispatch(consoleClear())
+);
 
 function onRouteChange(route) {
   store.dispatch(changeRoute(route));
