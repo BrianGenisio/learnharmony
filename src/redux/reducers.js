@@ -41,6 +41,16 @@ function code(state="", {type, code, route}) {
     }
 }
 
+function moduleName(state="", {type, moduleName}) {
+    switch(type) {
+        case action.EXECUTE_CODE:
+            return moduleName;
+
+        default:
+            return state;
+    }
+}
+
 function consoleLog(state=[], {type, line}) {
     switch (type) {
         case action.CONSOLE_LOG:
@@ -62,5 +72,6 @@ export default {
     contentOptions,
     page,
     code,
+    moduleName,
     consoleLog,
 };
