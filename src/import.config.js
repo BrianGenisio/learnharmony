@@ -11,4 +11,5 @@ var System = (function() {
   return importer;
 })();
 
+global.System = System;
 export default System;
