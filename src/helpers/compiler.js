@@ -1,3 +1,5 @@
+import System from '../import.config';
+
 function compile(code) {
   return System.transform(code)
     .then(transpileSuccess, transpileError);

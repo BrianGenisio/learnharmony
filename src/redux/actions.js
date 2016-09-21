@@ -26,7 +26,7 @@ export function executeCode(code, currentModule) {
         dispatch({type: action.EXECUTE_CODE, code, moduleName});
 
         compile(code)
-            .then(transpiled => execute(code, moduleName))
+            .then(transpiled => execute(transpiled, moduleName))
             .then(() => dispatch({type: action.EXECUTE_CODE_COMPLETE}));
     };
 };

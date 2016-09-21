@@ -4,7 +4,7 @@ import { Router, Route, hashHistory } from 'react-router';
 import {Provider} from 'react-redux';
 
 // TODO: Get the Bitimports config loaded
-//import './import.config.js';
+import './import.config.js';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'highlight.js/styles/default.css';
