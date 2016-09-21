@@ -1,4 +1,4 @@
-import bitimports from 'bit-imports';
+import bitimports from 'bit-imports/dist/bit-imports';
 
 var System = (function() {
   var importer = bitimports.config({
@@ -19,6 +19,7 @@ var System = (function() {
   /**
    * Simple filter for excluding particular modules from being processed by the transformation pipeline.
    */
+  
   function ignore(moduleMeta) {
     var ignoreList = this.ignore;
     return !(ignoreList && ignoreList.length && ignoreList.indexOf(moduleMeta.name) !== -1);
@@ -27,4 +28,4 @@ var System = (function() {
   return importer;
 })();
 
-var require = System.require;
+export default System;
