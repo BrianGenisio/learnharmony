@@ -1,7 +1,11 @@
+import "babel-polyfill";
+import 'whatwg-fetch';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, hashHistory } from 'react-router';
 import {Provider} from 'react-redux';
+import co from 'co';
 
 // TODO: Get the Bitimports config loaded
 import './import.config.js';
@@ -15,6 +19,8 @@ import App from './components/app';
 import content from './content';
 import createStore from './redux/store';
 import {changeRoute, consoleLog, consoleClear} from './redux/actions'
+
+global.co = co;
 
 const store = createStore();
 
