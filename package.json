@@ -33,7 +33,8 @@
     "build": "npm run content && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "content": "node tasks/process-content.js"
+    "content": "node tasks/process-content.js",
+    "publish": "./tasks/publish.sh"
   },
   "eslintConfig": {
     "extends": "./node_modules/react-scripts/config/eslint.js"
