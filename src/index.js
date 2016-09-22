@@ -20,7 +20,7 @@ import content from './content';
 import createStore from './redux/store';
 import {changeRoute, consoleLog, consoleClear} from './redux/actions'
 
-global.co = co;
+global.co = co; 
 
 const store = createStore();
 
