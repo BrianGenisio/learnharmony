@@ -1,0 +1,372 @@
+[
+    {
+        "title": "About",
+        "heading": "About LearnHarmony.org",
+        "hideEditor": true,
+        "intro": "<p>This site was created by <a href=\"http://briangenisio.com\">Brian Genisio</a> and <a href=\"https://github.com/MiguelCastillo\">Miguel Castillo</a> as a mechanism to learn ES6 and teach others about it.  The code for this site is written in ES6 using <a href=\"http://babeljs.io\">Babel</a> for transpiling in the browser and <a href=\"http://github.com/miguelcastillo/bit-imports\">bit imports</a> for the module loader.  The source is available on <a href=\"http://www.github.com/BrianGenisio/LearnHarmony\">Github</a></p>\n<p>Have Fun!</p>\n",
+        "source": "content/about.md",
+        "route": "about"
+    },
+    {
+        "title": "Arrow Functions",
+        "next": "es6discuss/string-interpolation",
+        "nextText": "String Interpolation",
+        "heading": "Arrow Functions",
+        "code": "var values = [1, 2, 3, 4, 5, 6];\n\nvar even = values.filter(x => x % 2 === 0);\nvar evenSquares = even.map(x => x * x);\n\nconsole.log(even, evenSquares);\n",
+        "intro": "",
+        "source": "content/es6discuss/arrow-functions.md",
+        "route": "es6discuss/arrow-functions"
+    },
+    {
+        "title": "Block Scoping",
+        "next": "es6discuss/const",
+        "nextText": "Const values",
+        "heading": "Block Scoping",
+        "code": "function testBlockScoping() {\n  if(true) {\n    var functionScoped = 'function';\n    let blockScoped = 'block';\n  }\n\n  console.log(functionScoped, blockScoped);\n}\n\ntestBlockScoping();\n",
+        "intro": "",
+        "source": "content/es6discuss/block-scoping.md",
+        "route": "es6discuss/block-scoping"
+    },
+    {
+        "title": "Extending Classes",
+        "next": "es6discuss/block-scoping",
+        "nextText": "Block Scoping",
+        "heading": "Extending Classes",
+        "code": "class Person {\n  constructor(first, last) {\n    this.first = first;\n    this.last = last;\n  }\n}\n\nclass Employee extends Person {\n    constructor(first, last) {\n        super(first, last);\n        this.type = 'employee';\n    }\n}\n\nvar brian = new Employee('Brian', 'Genisio');\n\nconsole.log(brian);\n",
+        "intro": "",
+        "source": "content/es6discuss/classes-extended.md",
+        "route": "es6discuss/classes-extended"
+    },
+    {
+        "title": "Private Properties in Classes",
+        "next": "es6discuss/proxies",
+        "nextText": "Proxies",
+        "heading": "Private Properties in Classes",
+        "code": "let priv = new WeakMap();\n\nclass Person {\n  constructor(first, last) {\n    priv.set(this, {first, last});\n  }\n\n  get first() { return priv.get(this).first; }\n  get last() { return priv.get(this).last; }\n}\n\n// Later, in another module\nvar brian = new Person('Brian', 'Genisio');\n\nconsole.log(brian.first, brian.last);\n",
+        "intro": "",
+        "source": "content/es6discuss/classes-private.md",
+        "route": "es6discuss/classes-private"
+    },
+    {
+        "title": "Classes",
+        "next": "es6discuss/classes-extended",
+        "nextText": "Extending Classes",
+        "heading": "Classes",
+        "code": "class Person {\n  constructor(first, last) {\n    this.first = first;\n    this.last = last;\n  }\n}\n\nvar brian = new Person('Brian', 'Genisio');\n\nconsole.log(brian);\n",
+        "intro": "",
+        "source": "content/es6discuss/classes.md",
+        "route": "es6discuss/classes"
+    },
+    {
+        "title": "Block Scoping",
+        "next": "es6discuss/object-literals",
+        "nextText": "Object Literals",
+        "heading": "Block Scoping",
+        "code": "const constValue = 'ABC';\n\nconsole.log('trying to override')\n\nconstValue = 'overwritten';\n",
+        "intro": "",
+        "source": "content/es6discuss/const.md",
+        "route": "es6discuss/const"
+    },
+    {
+        "title": "Coroutines",
+        "next": "es6discuss/maps-sets",
+        "nextText": "Maps and Sets",
+        "heading": "Coroutines",
+        "code": "co(function* doit(){\n  const index = yield fetch('index.html').then(r => r.text());\n  const icon = yield fetch('favicon.ico').then(r => r.blob());\n\n  console.log(index.length);\n  console.log(icon.size);\n});\n",
+        "intro": "<script src=\"bower_components/co/co.js\"></script>\n<script src=\"bower_components/setimmediate/setImmediate.js\"></script> ",
+        "source": "content/es6discuss/coroutines.md",
+        "route": "es6discuss/coroutines"
+    },
+    {
+        "title": "Default Parameters",
+        "next": "es6discuss/destructuring-objects",
+        "nextText": "Destructuring",
+        "heading": "Default Parameters",
+        "code": "function sayHello(name='Jane Doe') {\n  console.log(`Hello, ${name}.`);\n}\n\nsayHello(\"Brian Genisio\");\nsayHello();\n",
+        "intro": "",
+        "source": "content/es6discuss/default-values.md",
+        "route": "es6discuss/default-values"
+    },
+    {
+        "title": "Destructuring Objects/Arrays",
+        "next": "es6discuss/rest",
+        "nextText": "Rest/Spread parameters",
+        "heading": "Destructuring Objects/Arrays",
+        "code": "let person = {\n  first: 'Brian',\n  last: 'Genisio'\n};\nlet point = [3, 4]\n\nvar {first, last} = person;\nlet [x, y] = point;\n\nconsole.log(first, last);\nconsole.log(x, y);\n\n// Nice shorthand for swapping\n[y, x] = [x, y];\n\nconsole.log(x, y);\n",
+        "intro": "",
+        "source": "content/es6discuss/destructuring-objects.md",
+        "route": "es6discuss/destructuring-objects"
+    },
+    {
+        "title": "For/of loops",
+        "next": "es6discuss/iterators-two-way",
+        "nextText": "Iterators (Two Way)",
+        "heading": "For/of loops",
+        "code": "function* getValues() {\n  yield 1;\n  yield 2;\n  yield 3;\n}\n\nfor(let value of getValues()) {\n  console.log(value);\n}\n",
+        "intro": "",
+        "source": "content/es6discuss/for-of.md",
+        "route": "es6discuss/for-of"
+    },
+    {
+        "title": "Generators",
+        "next": "es6discuss/for-of",
+        "nextText": "For/Of Loops",
+        "heading": "Generators",
+        "code": "function* getValues() {\n  yield 1;\n  yield 2;\n  yield 3;\n}\n\nlet generator = getValues();\nconsole.log(generator.next());\nconsole.log(generator.next());\nconsole.log(generator.next());\nconsole.log(generator.next());\n",
+        "intro": "",
+        "source": "content/es6discuss/generators.md",
+        "route": "es6discuss/generators"
+    },
+    {
+        "title": "Two-way Iterators",
+        "next": "es6discuss/coroutines",
+        "nextText": "Coroutines",
+        "heading": "Two-way Iterators",
+        "code": "function* getValues() {\n  let first = yield 1;\n  let second = yield 2 * first;\n  yield 3 * second;\n}\n\nlet generator = getValues();\nconsole.log(generator.next());\nconsole.log(generator.next(100));\nconsole.log(generator.next(200));\nconsole.log(generator.next());\n",
+        "intro": "",
+        "source": "content/es6discuss/iterators-two-way.md",
+        "route": "es6discuss/iterators-two-way"
+    },
+    {
+        "title": "Iterators",
+        "next": "es6discuss/iterators-two-way",
+        "nextText": "Iterators (Two Way)",
+        "heading": "Iterators",
+        "code": "function iterateElements(array) {\n  return {\n    [Symbol.iterator]: function() {\n      var index = 0;\n      var current;\n      return {\n        next: function() {\n          if (index < array.length) {\n            current = array[index++];\n            return {\n              value: current,\n              done: false\n            };\n          }\n          return {\n            value: undefined,\n            done: true\n          }\n        }\n      };\n    }\n  };\n}\n\nvar generator = iterateElements([1,2,3]);\n\nfor (var value of generator) {\n  console.log(value);\n}\n",
+        "intro": "",
+        "source": "content/es6discuss/iterators.md",
+        "route": "es6discuss/iterators"
+    },
+    {
+        "title": "Maps and Sets",
+        "next": "es6discuss/classes-private",
+        "nextText": "Private Class Members",
+        "heading": "Maps and Sets",
+        "code": "let key1 = new Date();\nlet key2 = {foo: 'bar'};\n\nlet map = new Map();\nmap.set(key1, 'first');\nmap.set(key2, 'second');\n\nconsole.log(map.get(key1), map.get(key2));\n\nlet set = new Set([1, 2, 2, 3]);\n\nconsole.log(Array.from(set));\n",
+        "intro": "",
+        "source": "content/es6discuss/maps-sets.md",
+        "route": "es6discuss/maps-sets"
+    },
+    {
+        "title": "Modules",
+        "next": "es6discuss/promises",
+        "nextText": "Promises",
+        "heading": "Modules",
+        "code": "class Person {\n  constructor(first, last) {\n    this.first = first;\n    this.last = last;\n  }\n}\n\nexport default Person;\n",
+        "intro": "",
+        "source": "content/es6discuss/modules.md",
+        "route": "es6discuss/modules"
+    },
+    {
+        "title": "Object Literals",
+        "next": "es6discuss/default-values",
+        "nextText": "Default Values",
+        "heading": "Object Literals",
+        "code": "let key = \"someKey\";\nlet value = 55;\n\nlet obj = { \n  value,\n  [key + ' times 2']: value,\n  toString() {\n    return `The value is ${this.value}`;\n  }\n};\n\nconsole.log(obj);\nconsole.log(obj.toString());\n",
+        "intro": "",
+        "source": "content/es6discuss/object-literals.md",
+        "route": "es6discuss/object-literals"
+    },
+    {
+        "title": "Promises",
+        "next": "es6discuss/generators",
+        "nextText": "Generators",
+        "heading": "Promises",
+        "code": "var promise = new Promise((resolve, reject) => {\n    setTimeout(() => resolve(55), 1000);\n});\n\npromise.then(console.log);\n\nvar promise2 = new Promise((resolve, reject) => {\n    setTimeout(() => resolve(99), 2000);\n});\n\nPromise.all([promise, promise2])\n    .then(([v1, v2]) => console.log(v1, v2));\n",
+        "intro": "",
+        "source": "content/es6discuss/promises.md",
+        "route": "es6discuss/promises"
+    },
+    {
+        "title": "Proxies",
+        "heading": "Proxies",
+        "code": "let logger = {\n  get: function(target, name, receiver) {\n    console.log(`getting ${ name }`);\n    return target[name].toUpperCase();\n  }\n};\n\nlet person = { first: 'Brian', last: 'Genisio' };\nlet proxied = Proxy(person, logger);\n\nconsole.log(proxied.first);\n\nlet magic = Proxy({}, {\n  get: (target, name, receiver) => () => console.log(\"hello \" + name)\n});\n\nmagic.brian();\n",
+        "intro": "",
+        "source": "content/es6discuss/proxies.md",
+        "route": "es6discuss/proxies"
+    },
+    {
+        "title": "Rest Parameters",
+        "next": "es6discuss/modules",
+        "nextText": "Modules",
+        "heading": "Rest Parameters",
+        "code": "function format(fmt, ...values) {\n  console.log(fmt, values);\n}\n\nformat('%d: foobar, %s', 55, 'blah');\n\n\nfunction add(one, two, three) {\n  console.log(one + two + three);\n}\n\nlet values = [1, 2, 3];\nadd(...values);\n",
+        "intro": "",
+        "source": "content/es6discuss/rest.md",
+        "route": "es6discuss/rest"
+    },
+    {
+        "title": "String Interpolation",
+        "next": "es6discuss/string-methods",
+        "nextText": "String/Array Methods",
+        "heading": "String Interpolation",
+        "code": "var person = {\n  first: 'Brian',\n  last: 'Genisio'\n};\n\nvar interpolated = `Hello, my name is ${ person.first } ${ person.last }.`;\n\nconsole.log(interpolated);\n",
+        "intro": "",
+        "source": "content/es6discuss/string-interpolation.md",
+        "route": "es6discuss/string-interpolation"
+    },
+    {
+        "title": "String/Array Methods",
+        "next": "es6discuss/classes",
+        "nextText": "Classes",
+        "heading": "String/Array Methods",
+        "code": "var name = \"John Oliver\";\nvar data = [1, 2, 3, 4];\n\nconsole.log(name.startsWith(\"John\"));\nconsole.log(name.endsWith(\"Oliver\"));\nconsole.log(name.includes(\"live\"));\nconsole.log(\"derp \".repeat(3));\n\nconsole.log(data.find(x => x % 2 === 0));\nconsole.log(data.findIndex(x => x % 2 === 0));\nconsole.log(data.fill(0));\n",
+        "intro": "",
+        "source": "content/es6discuss/string-methods.md",
+        "route": "es6discuss/string-methods"
+    },
+    {
+        "title": "Home",
+        "route": "home",
+        "first": true,
+        "next": "lessons/arrow-functions",
+        "nextText": "Let's get started with our first lession -- Arrow Functions",
+        "heading": "Learn ES2015 (ES6/Harmony) Now!",
+        "hideComments": true,
+        "code": "let futureJavascript = () => {\n    let ES2015 = 'awesome';\n    console.log(`The future of JavaScript is ${ES2015}`);\n};\n\nfutureJavascript();\n",
+        "intro": "<p>Welcome to LearnHarmony.org.  This site is designed to help you learn the new features of ECMAScript (primarily ES2015 for now) through examples and exploration. Write to the console, have some fun.</p>\n<p>There are several micro-lessons about all of the new features in JavaScript.  Have fun!</p>\n",
+        "source": "content/home.md"
+    },
+    {
+        "title": "Arrow Functions (context)",
+        "navGroup": ".lessons",
+        "next": "lessons/destructuring",
+        "nextText": "Now, let's learn about variable Destructuring.",
+        "heading": "Arrow Functions -- Context",
+        "code": "var ctx = { foo: 'bar' };\n\n// this === window\nlet printThis = () => {\n  if (this !== ctx) {\n    console.log(\"Context is not changed\");\n  }\n  else {\n    console.log(\"Context changed\", this);\n  }\n}\n\nprintThis();\nprintThis.call(ctx);\nprintThis.apply(ctx);\nprintThis.bind(ctx)();\n",
+        "intro": "<h3 id=\"how-are-arrow-functions-different-from-regular-functions-\">How are Arrow Functions different from regular functions?</h3>\n<p>There are two differences:</p>\n<ol>\n<li><p><strong>Function context (this) has lexical scope</strong>\nBasically, this means that <code>this</code> is the <code>this</code> from the scope that defines the function, not the context that calls you. Context modifiers (<code>call</code>, <code>apply</code>, <code>bind</code>, etc) have no affect over the value of <code>this</code>.  See the example below</p>\n</li>\n<li><p><strong>Arrow Functions are not constructors</strong>\nYou can&#39;t use the &quot;new&quot; operator on Arrow Functions.  In other words, this will result in a type error:</p>\n<pre><code><span class=\"hljs-keyword\">let</span> NotGood = <span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> {};\n<span class=\"hljs-keyword\">let</span> wontWork = <span class=\"hljs-keyword\">new</span> NotGood();\n</code></pre></li>\n</ol>\n<blockquote>\n<p>Note: this repl loop won&#39;t display this behavior, but don&#39;t let it fool you.  The spec doesn&#39;t allow it.</p>\n</blockquote>\n",
+        "source": "content/lessons/arrow-functions-context.md",
+        "route": "lessons/arrow-functions-context"
+    },
+    {
+        "title": "Arrow Functions",
+        "navGroup": ".lessons",
+        "first": true,
+        "next": "lessons/arrow-functions-context",
+        "nextText": "But Arrow Functions are not exactly like regular functions.  \nLet's find out why\n",
+        "heading": "Arrow Functions",
+        "code": "var values = [1, 2, 3, 4, 5, 6];\n\nvar even = values.filter(x => x % 2 === 0);\nvar evenSquares = even.map(x => x * x);\n\nconsole.log(even, evenSquares);\n",
+        "intro": "<p>Arrow Functions are a shorthand for anonymous functions in JavaScript.  For the most part, they behave just like normal, anonymous functions but with a lighter syntax.</p>\n<p>A standard function can be described as </p>\n<pre><code><span class=\"hljs-keyword\">var</span> myFunction = <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span><span class=\"hljs-params\">(arg)</span> </span>{ \n    <span class=\"hljs-keyword\">return</span> arg.toUpperCase(); \n};\n</code></pre><p>With Arrow Functions, you can write the same thing: </p>\n<pre><code>var myFunction = <span class=\"hljs-function\"><span class=\"hljs-params\">(arg)</span> =&gt;</span> arg.toUpperCase();\n</code></pre><h3 id=\"where-will-you-use-arrow-functions-\">Where will you use Arrow Functions?</h3>\n<p>Arrow Functions are particularly useful when passing anonymous functions into other functions.  For instance, the syntax for filtering and mapping values becomes much more terse.</p>\n<h3 id=\"give-it-a-try-\">Give it a try!</h3>\n",
+        "source": "content/lessons/arrow-functions.md",
+        "route": "lessons/arrow-functions"
+    },
+    {
+        "title": "Block Scope (const)",
+        "navGroup": ".lessons",
+        "next": "lessons/template-strings",
+        "nextText": "Now let's look at Template Strings.",
+        "heading": "Block Scope (\"const\" keyword)",
+        "code": "const foo = \"bar\";\nconsole.log(foo);\n\nfoo = \"baz\";\n",
+        "intro": "<p>In addition to the <a href=\"/#lessons/block-scope-let\"><code>let</code> keyword</a> which is block scoped, there is another new way to declare values in ES6: <code>const</code>.  Like most languages, <code>const</code> values cannot be changed at runtime.  Any code which trys to do this will fail when the code is evaluated.</p>\n<pre><code class=\"lang-javascript\"><span class=\"hljs-keyword\">const</span> foo = <span class=\"hljs-string\">\"bar\"</span>;\n<span class=\"hljs-built_in\">console</span>.log(foo);\n\nfoo = <span class=\"hljs-string\">\"baz\"</span>; <span class=\"hljs-comment\">// evalutation error</span>\n</code></pre>\n<h3 id=\"give-it-a-try\">Give it a try</h3>\n",
+        "source": "content/lessons/block-scope-const.md",
+        "route": "lessons/block-scope-const"
+    },
+    {
+        "title": "Block Scope (let)",
+        "navGroup": ".lessons",
+        "next": "lessons/block-scope-const",
+        "nextText": "There's another way to do block scoping.  Learn about \"const\" next.",
+        "heading": "Block Scope (\"let\" keyword)",
+        "code": "function blockScoped() {\n    if(true) {\n        let zed = 'alive'; \n    }\n\n    console.log(\"Zed is \" + zed);\n}\n\nblockScoped();\n",
+        "intro": "<p>Up until ES6, variables (<code>var</code>) are always function scoped.  It doesn&#39;t matter where you define your variable -- the variable is available anywhere within the function.  This allows you to write code that you wouldn&#39;t expect to work:</p>\n<pre><code class=\"lang-javascript\"><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">fnScoped</span>(<span class=\"hljs-params\"></span>) </span>{\n    <span class=\"hljs-keyword\">if</span>(<span class=\"hljs-literal\">true</span>) {\n        <span class=\"hljs-keyword\">var</span> zed = <span class=\"hljs-string\">'alive'</span>; <span class=\"hljs-comment\">// zed is \"hoisted\" to the function block</span>\n    }\n\n    <span class=\"hljs-keyword\">if</span>(<span class=\"hljs-literal\">true</span>) {\n        <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">'zed is '</span> + zed); <span class=\"hljs-comment\">// zed is visible</span>\n    }\n}\n</code></pre>\n<p>In ES6, the <code>let</code> keyword allows you to define variables within the scope of the block (block scoping).  This makes variables behave more like what you might expect.</p>\n<pre><code class=\"lang-javascript\"><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">blockScoped</span>(<span class=\"hljs-params\"></span>) </span>{\n    <span class=\"hljs-keyword\">if</span>(<span class=\"hljs-literal\">true</span>) {\n        <span class=\"hljs-keyword\">let</span> zed = <span class=\"hljs-string\">'alive'</span>; <span class=\"hljs-comment\">// zed is not \"hoisted\" out of this block</span>\n    }\n\n    <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">'zed is '</span> + zed); <span class=\"hljs-comment\">// zed is not visible</span>\n}\n</code></pre>\n<p>Because of this, I&#39;m starting to write all of my variables using <code>let</code> instead of <code>var</code> unless I really want function scope, which is rare.</p>\n<h3 id=\"give-it-a-try\">Give it a try</h3>\n",
+        "source": "content/lessons/block-scope-let.md",
+        "route": "lessons/block-scope-let"
+    },
+    {
+        "title": "Classes -- Extended",
+        "navGroup": ".lessons",
+        "heading": "Classes - Extended",
+        "code": "class Person {\n  constructor(first, last) {\n    this.first = first;\n    this.last = last;\n  }\n\n  toString() {\n    return `${this.first} ${this.last}`;\n  }\n}\n\nclass SuperPerson extends Person {\n  constructor(first, last, power) {\n    super(first, last);\n    this.superPower = power;\n  }\n\n  toString() {\n    return `${super.toString()} with the power of ${this.superPower}`;\n  }\n}\n\nlet brian = new SuperPerson('Brian', 'Genisio', 'code');\n\nconsole.log(brian.toString());\n",
+        "intro": "<p>Classes can be extended using the <code>extends</code> keyword.  Methods can be overridden by re-defining them but the parent implementation can be called with <code>super()</code>;</p>\n<pre><code class=\"lang-javascript\"><span class=\"hljs-class\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-title\">SuperPerson</span> <span class=\"hljs-keyword\">extends</span> <span class=\"hljs-title\">Person</span> </span>{\n  <span class=\"hljs-keyword\">constructor</span>(first, last, power) {\n    <span class=\"hljs-keyword\">super</span>(first, last);\n    <span class=\"hljs-keyword\">this</span>.superPower = power;\n  }\n\n  toString() {\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-string\">`<span class=\"hljs-subst\">${<span class=\"hljs-keyword\">super</span>.toString()}</span> with the power of <span class=\"hljs-subst\">${<span class=\"hljs-keyword\">this</span>.superPower}</span>`</span>;\n  }\n}\n</code></pre>\n<h3 id=\"give-it-a-try\">Give it a try</h3>\n",
+        "source": "content/lessons/classes-extended.md",
+        "route": "lessons/classes-extended"
+    },
+    {
+        "title": "Classes",
+        "navGroup": ".lessons",
+        "next": "lessons/classes-extended",
+        "nextText": "Classes can be extended!  Find out how.",
+        "heading": "Classes",
+        "code": "class Person {\n  constructor(first, last) {\n    this.first = first;\n    this.last = last;\n  }\n\n  toString() {\n    return `${this.first} ${this.last}`;\n  }\n}    \n\nlet brian = new Person('Brian', 'Genisio');\n\nconsole.log(brian.toString());\n",
+        "intro": "<p>Classes are now first-class concepts in JavaScript.  Having a syntax for class declaration standardizes the class definition approaches.  It enables extension, super, and static capabilities in a well-defined, expected way.</p>\n<p>Classes are mostly made up of a special &quot;constructor&quot; method, and any other method you may need on the class.  Prototypal inheritance will happen to new objects just like the ES5 mechanism of adding functoins to a class&#39;s prototype.</p>\n<pre><code class=\"lang-javascript\"><span class=\"hljs-class\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-title\">Person</span> </span>{\n  <span class=\"hljs-keyword\">constructor</span>(first, last) {\n    <span class=\"hljs-keyword\">this</span>.first = first;\n    <span class=\"hljs-keyword\">this</span>.last = last;\n  }\n\n  toString() {\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-string\">`<span class=\"hljs-subst\">${<span class=\"hljs-keyword\">this</span>.first}</span> <span class=\"hljs-subst\">${<span class=\"hljs-keyword\">this</span>.last}</span>`</span>;\n  }\n}\n</code></pre>\n<h3 id=\"give-it-a-try\">Give it a try</h3>\n",
+        "source": "content/lessons/classes.md",
+        "route": "lessons/classes"
+    },
+    {
+        "title": "Default Parameters",
+        "navGroup": ".lessons",
+        "next": "lessons/block-scope-let",
+        "nextText": "Next, let's find out two new ways to declare variables.",
+        "heading": "Default Parameters",
+        "code": "function logDefaults(a = 1, b = 2, c = 3) {\n    console.log({a, b, c});\n}\n\nlogDefaults();\n\nfunction logDestructuredDefaults({a:A = 1, b:B, c:C = 3}) {\n    console.log({A, B, C});\n}\n\nlogDestructuredDefaults({b: 2});\n\nlet {a=1, b=2, c=3} = {};\nconsole.log({a, b, c});\n",
+        "intro": "<p>You have probably wanted it for a long time.  FINALLY!  You can define default values for parameters. Defaults can be assigned to any parameter. You can even assign default values to destructured values (both as function parameters and non-function destructuring).</p>\n<h3 id=\"give-it-a-try\">Give it a try</h3>\n",
+        "source": "content/lessons/default-parameters.md",
+        "route": "lessons/default-parameters"
+    },
+    {
+        "title": "Array Destructuring",
+        "navGroup": ".lessons",
+        "next": "lessons/property-shorthand",
+        "nextText": "Did you notice something funny about those console.log calls?",
+        "heading": "Array Destructuring",
+        "code": "let a = 1, b = 2;\n[b, a] = [a, b];\nconsole.log({a, b});\n",
+        "intro": "<p>Destructuring works on Arrays as well.</p>\n<pre><code><span class=\"hljs-built_in\">var</span> [<span class=\"hljs-built_in\">first</span>, <span class=\"hljs-built_in\">last</span>] = ['Marsellus', 'Wallace'];\nconsole.<span class=\"hljs-built_in\">log</span>(<span class=\"hljs-built_in\">first</span>, <span class=\"hljs-built_in\">last</span>);\n</code></pre><p>So this means that you can easily swap two elements in an array.</p>\n<pre><code>let a = <span class=\"hljs-number\">1</span>, <span class=\"hljs-keyword\">b </span>= <span class=\"hljs-number\">2</span><span class=\"hljs-comment\">;</span>\n[<span class=\"hljs-keyword\">b, </span>a] = [a, <span class=\"hljs-keyword\">b];\n</span>console.log({a, <span class=\"hljs-keyword\">b});</span>\n</code></pre><p>You can also skip over items you don&#39;t care about.</p>\n<pre><code><span class=\"hljs-built_in\">let</span> [,,<span class=\"hljs-built_in\">third</span>] = [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>];\nconsole.<span class=\"hljs-built_in\">log</span>({<span class=\"hljs-built_in\">third</span>});\n</code></pre><p>You can even use the &quot;spread&quot; operator to get the remaining items in an array.</p>\n<pre><code>let [first, ...remaining] = [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">5</span>];\nconsole.log(first);\nconsole.log(remaining);\n</code></pre>",
+        "source": "content/lessons/destructuring-arrays.md",
+        "route": "lessons/destructuring-arrays"
+    },
+    {
+        "title": "Variable Destructuring",
+        "navGroup": ".lessons",
+        "next": "lessons/destructuring-arrays",
+        "nextText": "Destructuring isn't just for objects.  You can Destructure Arrays too!",
+        "heading": "Object Destructuring",
+        "code": "let person = {\n    first: 'Marsellus',\n    last: 'Wallace',\n    spouse: {\n        first: 'Mia',\n        last: 'Wallace'\n    }\n};\n\nlet {first: husband, last, spouse: { first: wife } } = person;\nconsole.log(wife, husband, last);\n",
+        "intro": "<p>Variable Destructuring is a syntactical convenience designed to help you destructure objects and arrays.  </p>\n<p>Let&#39;s say you have a person object:</p>\n<pre><code><span class=\"hljs-attribute\">var person</span> = {\n    first: <span class=\"hljs-string\">'Marsellus'</span>,\n    last: <span class=\"hljs-string\">'Wallace'</span>\n};\n</code></pre><p>You can easily assign variables to these properties using destructuring:</p>\n<pre><code><span class=\"hljs-built_in\">let</span> {<span class=\"hljs-built_in\">first</span>, <span class=\"hljs-built_in\">last</span>} = person;\nconsole.<span class=\"hljs-built_in\">log</span>(<span class=\"hljs-built_in\">first</span>, <span class=\"hljs-built_in\">last</span>);\n</code></pre><p>You can also assign the variables using different names:</p>\n<pre><code><span class=\"hljs-keyword\">let</span> {first: <span class=\"hljs-function\"><span class=\"hljs-keyword\">fn</span>, last: <span class=\"hljs-built_in\">ln</span>} = person</span>;\nconsole.<span class=\"hljs-built_in\">log</span>(<span class=\"hljs-function\"><span class=\"hljs-keyword\">fn</span>, <span class=\"hljs-built_in\">ln</span>)</span>;\n</code></pre><p>This is particularly useful when you have a function that returns two values:</p>\n<pre><code><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">getResult</span>(<span class=\"hljs-params\"></span>) </span>{\n    <span class=\"hljs-keyword\">return</span> {\n        <span class=\"hljs-attr\">result</span>: <span class=\"hljs-number\">1234</span>,\n        <span class=\"hljs-attr\">error</span>: <span class=\"hljs-literal\">null</span>\n    };\n}\n\n<span class=\"hljs-keyword\">let</span> {result, error} = getResult();\n</code></pre><p>But you can also use destructuring to pass variables in:</p>\n<pre><code><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">doHTTP</span><span class=\"hljs-params\">({host, port, path})</span> <span class=\"hljs-comment\">{\n    console.log(host, port, path);\n}</span>\n\n<span class=\"hljs-title\">doHTTP</span><span class=\"hljs-params\">({\n    host: <span class=\"hljs-string\">'learnharmony.org'</span>,\n    port: 80,\n    path: <span class=\"hljs-string\">'/'</span>\n})</span>;</span>\n</code></pre><p>You can even destructure deeply:</p>\n<pre><code><span class=\"hljs-built_in\">let</span> person = {\n    <span class=\"hljs-built_in\">first</span>: 'Marsellus',\n    <span class=\"hljs-built_in\">last</span>: 'Wallace',\n    spouse: {\n        <span class=\"hljs-built_in\">first</span>: 'Mia',\n        <span class=\"hljs-built_in\">last</span>: 'Wallace'\n    }\n};\n\n<span class=\"hljs-built_in\">let</span> {<span class=\"hljs-built_in\">first</span>: husband, <span class=\"hljs-built_in\">last</span>, spouse: { <span class=\"hljs-built_in\">first</span>: wife } } = person;\nconsole.<span class=\"hljs-built_in\">log</span>(wife, husband, <span class=\"hljs-built_in\">last</span>);\n</code></pre>",
+        "source": "content/lessons/destructuring.md",
+        "route": "lessons/destructuring"
+    },
+    {
+        "title": "Method Shorthand",
+        "navGroup": ".lessons",
+        "next": "lessons/default-parameters",
+        "nextText": "Want more shorthand syntax?  Let's talk about Default Parameters.",
+        "heading": "Method Shorthand",
+        "code": "var chopper = {\n    owner: 'Zed',\n    getOwner() { return this.owner; }\n};\n\nconsole.log(\"Who's chopper is this?\");\nconsole.log(\"It's \" + chopper.getOwner() + \"'s\" );\n",
+        "intro": "<p>Much like <a href=\"/#lessons/property-shorthand\">Property Shorthand</a>, Method Shorthand is a cleaner way to define methods on objects (or Classes).  </p>\n<p>Where you may have once written something like this:</p>\n<pre><code class=\"lang-javascript\"><span class=\"hljs-keyword\">var</span> chopper = {\n    <span class=\"hljs-attr\">owner</span>: <span class=\"hljs-string\">'Zed'</span>,\n    <span class=\"hljs-attr\">getOwner</span>: <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span>(<span class=\"hljs-params\"></span>) </span>{ <span class=\"hljs-keyword\">return</span> <span class=\"hljs-keyword\">this</span>.owner; }\n};\n</code></pre>\n<p>It can be written like this:</p>\n<pre><code class=\"lang-javascript\"><span class=\"hljs-keyword\">var</span> chopper = {\n    <span class=\"hljs-attr\">owner</span>: <span class=\"hljs-string\">'Zed'</span>,\n    getOwner() { <span class=\"hljs-keyword\">return</span> <span class=\"hljs-keyword\">this</span>.owner; }\n}\n</code></pre>\n<p>This may not feel like a big change, but it is particularly nice when used in Classes.</p>\n<h3 id=\"give-it-a-try\">Give it a try</h3>\n",
+        "source": "content/lessons/method-shorthand.md",
+        "route": "lessons/method-shorthand"
+    },
+    {
+        "title": "Property Shorthand",
+        "navGroup": ".lessons",
+        "next": "lessons/method-shorthand",
+        "nextText": "Want more shorthand syntax?  Let's talk about Method Shorthand.",
+        "heading": "Property Shorthand",
+        "code": "function makeParent(first, last) {\n    return {first, last, isParent: true};\n}\n\nconsole.log(makeParent('Darth', 'Vader'));\n",
+        "intro": "<p>This feature is really just a shorthand notation for what you are used to writing for object literals.  When the variable name is the same as the object key, you can use a shorthand notation.</p>\n<p>In other words, <code>{first: first, last: last}</code> can be written as <code>{first, last}</code>.  Shorthand notation can be mixed with traditional notation: <code>{first, last, isParent: true}</code>.</p>\n<h3 id=\"give-it-a-try\">Give it a try</h3>\n",
+        "source": "content/lessons/property-shorthand.md",
+        "route": "lessons/property-shorthand"
+    },
+    {
+        "title": "Tagged Template Strings",
+        "navGroup": ".lessons",
+        "next": "lessons/classes",
+        "nextText": "Classes",
+        "heading": "Template Strings (tags)",
+        "code": "function uc(strings, ...values) {\n    let result = '';\n    for(let string of strings) {\n        result += string;\n        result += (values.shift() || '').toUpperCase();\n    }\n\n    return result;\n}\n\nlet processed = uc`First: ${'abc'} Second: ${'def'}`;\nconsole.log(processed);\n",
+        "intro": "<p>You can have some control over how template strings get stitched together.  If you &quot;tag&quot; a template string, the strings and evaluated values get passed into a function of the same name.  Here is an example of a template string tag that stitches the string together but causes the values to be upper case.</p>\n<pre><code class=\"lang-javascript\"><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">uc</span>(<span class=\"hljs-params\">strings, ...values</span>) </span>{\n  <span class=\"hljs-keyword\">let</span> result = <span class=\"hljs-string\">''</span>;\n  <span class=\"hljs-keyword\">for</span>(<span class=\"hljs-keyword\">let</span> string <span class=\"hljs-keyword\">of</span> strings) {\n    result += string;\n    result += (values.shift() || <span class=\"hljs-string\">''</span>).toUpperCase();\n  }\n\n  <span class=\"hljs-keyword\">return</span> result;\n}\n\n<span class=\"hljs-keyword\">let</span> processed = uc<span class=\"hljs-string\">`First: <span class=\"hljs-subst\">${<span class=\"hljs-string\">'abc'</span>}</span> Second: <span class=\"hljs-subst\">${<span class=\"hljs-string\">'def'</span>}</span>`</span>;\n</code></pre>\n<p>You can expect JavaScript libraries of the future using tags to aid with internationalization, string formatters, HTML templates, and HTTP generators.</p>\n",
+        "source": "content/lessons/template-strings-tags.md",
+        "route": "lessons/template-strings-tags"
+    },
+    {
+        "title": "Template Strings",
+        "navGroup": ".lessons",
+        "next": "lessons/template-strings-tags",
+        "nextText": "Template Strings are more powerful than this when you \"tag\" them.",
+        "heading": "Template Strings (interpolation)",
+        "code": "let piecesPerPie = 6;\nlet numberOfPies = 3;\n\nconsole.log(`There are ${numberOfPies} pies, so we \\\nhave ${piecesPerPie * numberOfPies} pieces.`);\n",
+        "intro": "<p>Template strings, on the surface, feel just like string interpolation in other languages.  This is a very handy feature, especially if you find yourself concatenating strings a lot.  Instead of using single quote <code>&#39;&#39;</code> or double quote <code>&quot;&quot;</code>, template strings use back-ticks <code>`` </code>.</p>\n<p>Using the replacement syntax, <code>${}</code> you can evaluate blocks of code within your string.  Usually, this just for variable replacement, but complex expressions can live inside the curly braces.</p>\n<pre><code class=\"lang-javascript\"><span class=\"hljs-keyword\">let</span> piecesPerPie = <span class=\"hljs-number\">6</span>;\n<span class=\"hljs-keyword\">let</span> numberOfPies = <span class=\"hljs-number\">3</span>;\n<span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">`There are <span class=\"hljs-subst\">${numberOfPies}</span> pies, so we have <span class=\"hljs-subst\">${piecesPerPie * numberOfPies}</span> pieces.`</span>);\n</code></pre>\n<p>These strings are treated as literals, so they are evaluated at the time of execution.  If one of the references does not exist, the code will throw just like any other block of code.  Unfortunately, there is no way to lazy evaluate these template strings.  You can, however, create a function that takes data and renders a string:</p>\n<pre><code class=\"lang-javascript\"><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">renderPerson</span>(<span class=\"hljs-params\">person</span>) </span>{ <span class=\"hljs-keyword\">return</span> <span class=\"hljs-string\">`\n&lt;dl&gt;\n  &lt;dt&gt;First&lt;/dt&gt; &lt;dd&gt;<span class=\"hljs-subst\">${person.first}</span>&lt;/dd&gt;\n  &lt;dt&gt;Last&lt;/dt&gt; &lt;dd&gt;<span class=\"hljs-subst\">${person.last}</span>&lt;/dd&gt;\n&lt;/dl&gt;  \n`</span>;}\n\nrenderPerson({<span class=\"hljs-attr\">first</span>: <span class=\"hljs-string\">'Brian'</span>, <span class=\"hljs-attr\">last</span>: <span class=\"hljs-string\">'Genisio'</span>});\n</code></pre>\n<p>Also, did you notice that you can span multiple lines with template strings?  The carriage return will be added, but if you don&#39;t want it, you can use the <code>\\</code> character.</p>\n",
+        "source": "content/lessons/template-strings.md",
+        "route": "lessons/template-strings"
+    }
+]

@@ -1,25 +1,42 @@
 {
-  "name": "LearnHarmony.com",
-  "version": "0.1.1",
-  "description": "A website for learning JavaScript.next (ES6)",
-  "author": "Brian Genisio",
-  "license": "ISC",
-  "dependencies": {
-  },
+  "name": "lh-react",
+  "version": "0.1.0",
+  "private": true,
   "devDependencies": {
-    "front-matter": "^0.2.0",
-    "grunt": "^0.4.5",
-    "grunt-contrib-jshint": "^0.10.0",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-http-server": "^1.0.0",
-    "highlight.js": "^8.2.0",
-    "marked": "^0.3.2"
+    "front-matter": "^2.1.0",
+    "glob": "^7.0.6",
+    "highlight.js": "^9.6.0",
+    "marked": "^0.3.6",
+    "react-router": "^2.8.1",
+    "react-scripts": "0.4.1",
+    "redux-devtools": "^3.3.1"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/BrianGenisio/learnharmony.git"
+  "dependencies": {
+    "babel-bits": "^1.0.1",
+    "babel-polyfill": "^6.13.0",
+    "bit-imports": "^2.0.8",
+    "bootstrap": "^3.3.7",
+    "co": "^4.6.0",
+    "codemirror": "^5.18.2",
+    "jquery": "^3.1.0",
+    "lodash": "^4.15.0",
+    "react": "^15.3.1",
+    "react-bootstrap": "^0.30.3",
+    "react-dom": "^15.3.1",
+    "react-redux": "^4.4.5",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0",
+    "whatwg-fetch": "^1.0.0"
   },
   "scripts": {
-    "test": "grunt"
+    "start": "react-scripts start",
+    "build": "npm run content && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "content": "node tasks/process-content.js",
+    "publish": "./tasks/publish.sh"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/react-scripts/config/eslint.js"
   }
 }
