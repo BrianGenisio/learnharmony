@@ -46,7 +46,9 @@ class App extends Component {
 
           <Nav pullRight={true}>
             <NavItem href={'#' + contentPage.next}>
-              <span style={{marginLeft: "-4em"}}>Next</span> &gt;&gt;
+              {
+                contentPage.nextText && <span style={{marginLeft: "-4em"}}>Next &gt;&gt;</span>
+              }
             </NavItem>
           </Nav>
         </Navbar>
