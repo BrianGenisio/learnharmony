@@ -23,7 +23,7 @@ code: |
 
 Classes are now first-class concepts in JavaScript.  Having a syntax for class declaration standardizes the class definition approaches.  It enables extension, super, and static capabilities in a well-defined, expected way.
 
-Classes are mostly made up of a special "constructor" method, and any other method you may need on the class.  Prototypal inheritance will happen to new objects just like the ES5 mechanism of adding functoins to a class's prototype.
+Classes are mostly made up of a special "constructor" method, and any other method you may need on the class.  Prototypal inheritance will happen to new objects just like the ES5 mechanism of adding functions to a class's prototype.
 
 ```javascript
 class Person {
