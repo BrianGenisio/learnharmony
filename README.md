@@ -1,4 +1,4 @@
-# LearnHarmony.org
+# LearnHarmony.org # Endocrine
 
 This is the code for the website [LearnHarmony.org](http://LearnHarmony.org).  It is a static site with a custom Markdown/FrontMatter build step.  Everything has been written using ES6 modules.  I deploy the site to GitHub Pages using `npm run publish` command, which uses webpack sends it to the `docs` folder.  
 
